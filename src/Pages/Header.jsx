@@ -19,13 +19,15 @@ const Header = () => {
   return (
     <>
       {isMobile ? (
-        <div className="m-4 h-[50px] rounded-3xl shadow-xl flex gap-2 text-[28px] justify-between px-7 items-center">
+        <div className="flex justify-center items-center text-center">
+        <div className="mt-4 w-[240px] h-[45px] rounded-3xl shadow-xl flex gap-2 text-[25px] text-center content-center justify-between px-7 items-center">
             <div><FiHome/></div>
             {/* <div>|</div> */}
             <div><MdWorkOutline/></div>
             <div><FaGithub/></div>
             <div><IoCallOutline/></div>
             <div><TbBrandLinkedinFilled/></div>
+        </div>
         </div>
       ) : (
         <div className="w-screen h-[50px] border flex gap-2">
