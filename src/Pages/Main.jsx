@@ -32,7 +32,7 @@ export default function Main() {
           <FaSquareJs/>
           <FaReact />
           <FaAngular />
-          <SiMongodb />
+          <SiMongodb  />
         </div>
       </div>
     </div>

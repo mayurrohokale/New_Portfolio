@@ -4,7 +4,7 @@
 export default function About()
 {
     return(
-        <div>
+        <div className="h-screen">
             Inside About
         </div>
     )

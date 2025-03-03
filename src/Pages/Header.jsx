@@ -17,10 +17,10 @@ const Header = () => {
   }, []);
 
   return (
-    <>
+    <div className="fixed top-0 left-1/2 -translate-x-1/2 bg-white">
       {isMobile ? (
         <div className="flex justify-center items-center text-center">
-        <div className="mt-4 w-[240px] h-[45px] rounded-3xl shadow-xl flex gap-2 text-[25px] text-center content-center justify-between px-7 items-center">
+        <div className="mt-6 w-[240px] h-[45px] rounded-3xl shadow-xl flex gap-2 text-[25px] text-center content-center justify-between px-7 items-center">
             <div><FiHome/></div>
             {/* <div>|</div> */}
             <div><MdWorkOutline/></div>
@@ -38,7 +38,7 @@ const Header = () => {
           <div>Contact</div>
         </div>
       )}
-    </>
+    </div>
   );
 };
 
