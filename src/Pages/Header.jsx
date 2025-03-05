@@ -30,7 +30,7 @@ const Header = () => {
         </div>
         </div>
       ) : (
-        <div className="w-screen h-[50px] border flex gap-2">
+        <div className="w-screen h-[50px] border text-xl flex gap-10 items-center font-bold font-poppins justify-center">
           <div>Logo</div>
           <div>Home</div>
           <div>About</div>
