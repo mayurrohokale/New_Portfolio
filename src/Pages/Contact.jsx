@@ -4,12 +4,12 @@ import ReCAPTCHA from "react-google-recaptcha";
 
 const Backend_Url = import.meta.env.VITE_BACKEND_URL || "http://localhost:3000";
 const SITE_KEY = import.meta.env.VITE_SECRET_KEY;
+
 export default function Contact() {
-  const [successMessage, SetSuccessMessage] = useState();
-  const [errorMessage, setErrorMessage] = useState();
+  const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
   const [loading, setLoading] = useState(false);
   const [captchaToken, setCaptchaToken] = useState(null);
-//   const [status, setStatus] = useState();
 
   const [formData, setFormData] = useState({
     name: "",
@@ -27,65 +27,73 @@ export default function Contact() {
 
   const handleCaptchaChange = (token) => {
     setCaptchaToken(token);
-  }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    SetSuccessMessage("");
+
+    setSuccessMessage("");
     setErrorMessage("");
     setLoading(true);
 
-    if(!captchaToken){
-        setErrorMessage("Please Enter Captcha");
-        return;
+    if (!captchaToken) {
+      setErrorMessage("Please complete the CAPTCHA.");
+      setLoading(false);
+      return;
     }
 
     try {
-      const response = await axios.post(
-        `${Backend_Url}/contact`,{
+      const response = await axios.post(`${Backend_Url}/contact`, {
         ...formData,
-        recaptchaToken: captchaToken
-    });
-
-      console.log(response.data);
-      SetSuccessMessage("Message sent successfully");
+        recaptchaToken: captchaToken,
+      });
+      console.log(response);
+      setSuccessMessage(response?.data?.message||"Message sent successfully!");
+      setFormData({ name: "", email: "", message: "", subject: "General Inquiry" });
     } catch (err) {
-      console.log(err);
-      setErrorMessage(err?.response?.data?.message || "something went wrong");
+      setErrorMessage(err?.response?.data?.message || "Something went wrong.");
     }
     setLoading(false);
   };
 
   return (
-    <div className="w-full py-4  font-poppins">
-      <h1 className="flex justify-center font-bold text-2xl">Get in Touch</h1>
-      <div className="flex justify-center ">
-        <form className="flex flex-col gap-2" onSubmit={handleSubmit}>
-          <label>Name:</label>
-          <input
-            type="text"
-            name="name"
-            placeholder="Your Name"
-            className="border w-[300px]  md:w-[550px] p-2 rounded-md"
-            value={formData.name}
-            onChange={handleChange}
-            required
-          />
-          <label>Email: </label>
-          <input
-            type="email"
-            name="email"
-            placeholder="Your Email"
-            className="border w-[300px]  md:w-[550px]  p-2 rounded-md"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
-          <label>Subject:</label>
+    <div className="flex flex-col items-center py-8 px-1 md:px-8 lg:px-16 font-poppins">
+      <h1 className="text-3xl font-bold mb-6 text-center">Get in Touch</h1>
+      <form
+        className=" p-2 md:p-8 w-full max-w-2xl"
+        onSubmit={handleSubmit}
+      >
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="flex flex-col">
+            <label className="font-medium">Name</label>
+            <input
+              type="text"
+              name="name"
+              placeholder="Your Name"
+              className="border p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+              value={formData.name}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="flex flex-col">
+            <label className="font-medium">Email</label>
+            <input
+              type="email"
+              name="email"
+              placeholder="Your Email"
+              className="border p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
+          </div>
+        </div>
+        <div className="flex flex-col mt-4">
+          <label className="font-medium">Subject</label>
           <select
             name="subject"
-            className="border rounded-md h-12"
+            className="border p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
             value={formData.subject}
             onChange={handleChange}
             required
@@ -96,43 +104,42 @@ export default function Contact() {
             <option>Technical Support</option>
             <option>Collaboration</option>
           </select>
-          <label>Message:</label>
+        </div>
+        <div className="flex flex-col mt-4">
+          <label className="font-medium">Message</label>
           <textarea
             name="message"
             placeholder="Your Message"
-            className="border h-24 w-[300px]  md:w-[550px]  p-2 rounded-md"
+            className="border p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 h-32"
             value={formData.message}
             onChange={handleChange}
             required
           />
+        </div>
+        <div className="mt-4 flex justify-center">
           <ReCAPTCHA sitekey={SITE_KEY} onChange={handleCaptchaChange} />
-          <button
-            className={`font-bold w-[150px] md:w-[200px] p-3 text-md md:text-lg rounded-lg
-                ${
-                  loading
-                    ? "bg-gray-400 text-black cursor-not-allowed"
-                    : "bg-blue-500 text-white cursor-pointer"
-                }  `}
-            type="submit"
-            disabled={loading}
-          >
-            {loading ? "Sending..." : "Send Message"}
-          </button>
-          <div>
-          {successMessage && (
-            <div className="text-green-500 text-md md:text-lg font-semibold p-2 bg-green-100 border border-green-400 rounded-md mt-2">
-              {successMessage}
-            </div>
-          )}
-          {errorMessage && (
-            <div className="text-red-500 text-md md:text-lg font-semibold p-2 bg-red-100 border border-red-400 rounded-md mt-2">
-              {errorMessage}
-            </div>
-          )}
-
+        </div>
+        <div className="flex justify-center">
+        <button
+          className={`w-[200px]  md:w-[230px] mt-6 p-3 text-md md:text-lg font-bold rounded-lg transition duration-300
+            ${loading ? "bg-gray-400 cursor-not-allowed" : "bg-blue-500 text-white hover:bg-blue-600"}`}
+          type="submit"
+          disabled={loading}
+        >
+          {loading ? "Sending..." : "Send Message"}
+        </button>
+        </div>
+        {successMessage && (
+          <div className="text-green-600 text-center font-semibold p-2 bg-green-100 border border-green-400 rounded-md mt-4">
+            {successMessage}
           </div>
-        </form>
-      </div>
+        )}
+        {errorMessage && (
+          <div className="text-red-600 text-center font-semibold p-2 bg-red-100 border border-red-400 rounded-md mt-4">
+            {errorMessage}
+          </div>
+        )}
+      </form>
     </div>
   );
 }

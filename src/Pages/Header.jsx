@@ -4,6 +4,7 @@ import { MdWorkOutline } from "react-icons/md";
 import { FaGithub } from "react-icons/fa";
 import { IoCallOutline } from "react-icons/io5";
 import { TbBrandLinkedinFilled } from "react-icons/tb";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 1024);
@@ -17,16 +18,26 @@ const Header = () => {
   }, []);
 
   return (
-    <div className="fixed top-0 left-1/2 -translate-x-1/2 ">
+    <div className="fixed top-0 left-1/2 -translate-x-1/2 z-50  ">
       {isMobile ? (
-        <div className="flex justify-center items-center text-center ">
-        <div className="mt-6 w-[240px] h-[45px] rounded-3xl shadow-xl flex gap-2 text-[22px] text-center content-center justify-between px-7 items-center bg-white">
-            <div><FiHome/></div>
+        <div className="flex justify-center items-center text-center backdrop-blur-sm  rounded-b-3xl  ">
+        <div className="mt-6 w-[240px] h-[45px] rounded-3xl shadow-xl  flex gap-2 text-[22px] text-center content-center justify-between px-7 items-center bg-white">
+            <div>
+              <Link to="/"><FiHome/></Link>
+              </div>
             {/* <div>|</div> */}
-            <div><MdWorkOutline/></div>
-            <div><FaGithub/></div>
-            <div><IoCallOutline/></div>
-            <div><TbBrandLinkedinFilled/></div>
+            <div>
+              <Link to="/projects"><MdWorkOutline/></Link>
+            </div>
+            <div>
+              <a href="https://github.com/mayurrohokale"><FaGithub/></a>
+            </div>
+            <div>
+              <a href="https://www.linkedin.com/in/mayur-rohokale-397a35210/"><TbBrandLinkedinFilled/></a>
+            </div>
+            <div>
+              <Link to="/contact"><IoCallOutline/></Link>
+              </div>
         </div>
         </div>
       ) : (
