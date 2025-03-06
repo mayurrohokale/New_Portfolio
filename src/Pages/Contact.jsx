@@ -36,7 +36,7 @@ export default function Contact() {
       SetSuccessMessage("Message sent successfully");
     } catch (err) {
       console.log(err);
-      setErrorMessage(err);
+      setErrorMessage(err?.response?.data?.message || "something went wrong");
     }
     setLoading(false);
   };
@@ -102,8 +102,17 @@ export default function Contact() {
             {loading ? "Sending..." : "Send Message"}
           </button>
           <div>
-            <h1 className="text-green-400 text-lg">{successMessage}</h1>
-            <h1 className="text-red-400 text-lg">{errorMessage}</h1>
+          {successMessage && (
+            <div className="text-green-500 text-md md:text-lg font-semibold p-2 bg-green-100 border border-green-400 rounded-md mt-2">
+              {successMessage}
+            </div>
+          )}
+          {errorMessage && (
+            <div className="text-red-500 text-md md:text-lg font-semibold p-2 bg-red-100 border border-red-400 rounded-md mt-2">
+              {errorMessage}
+            </div>
+          )}
+
           </div>
         </form>
       </div>
