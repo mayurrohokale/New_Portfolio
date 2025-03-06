@@ -9,6 +9,7 @@ import { FaSquareJs } from "react-icons/fa6";
 import { LuMouse } from "react-icons/lu";
 import { MdOutlineKeyboardDoubleArrowDown } from "react-icons/md";
 
+
 export default function Main() {
   const texts = ["Designer", "Developer", "Coder"];
   const [textIndex, setTextIndex] = useState(0);
@@ -26,8 +27,8 @@ export default function Main() {
     <div className="absolute top-0 left-0 w-1/2 h-full bg-blue-100"></div>
 
     {/* Content at center */}
-    <div className="relative z-10 flex flex-col gap-6 items-center text-center">
-      <h1 className="font-bold lg:text-3xl md:text-2xl text-xl text-blue-500">
+    <div className="relative z-10 flex flex-col gap-4 items-center text-center">
+      <h1 className="font-bold lg:text-2xl md:text-xl text-lg text-blue-500">
         Hey! I AM
       </h1>
       <h1 className="font-bold lg:text-5xl md:text-4xl text-3xl">
@@ -47,7 +48,7 @@ export default function Main() {
     </div>
 
    
-    <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-blue-500 animate-bounce md:text-4xl text-3xl">
+    <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2 text-blue-500 animate-bounce md:text-4xl text-3xl">
       <MdOutlineKeyboardDoubleArrowDown />
     </div>
   </div>

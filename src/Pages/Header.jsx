@@ -5,6 +5,7 @@ import { FaGithub } from "react-icons/fa";
 import { IoCallOutline } from "react-icons/io5";
 import { TbBrandLinkedinFilled } from "react-icons/tb";
 import { Link } from "react-router-dom";
+import { HiOutlinePhone } from "react-icons/hi";
 
 const Header = () => {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 1024);
@@ -36,7 +37,7 @@ const Header = () => {
               <a href="https://www.linkedin.com/in/mayur-rohokale-397a35210/"><TbBrandLinkedinFilled/></a>
             </div>
             <div>
-              <Link to="/contact"><IoCallOutline/></Link>
+              <Link to="/contact"><HiOutlinePhone/></Link>
               </div>
         </div>
         </div>
