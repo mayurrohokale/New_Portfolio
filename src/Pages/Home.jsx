@@ -1,5 +1,7 @@
 import About from "./About";
 import Main from "./Main";
+import Projects from "./Projects";
+import Contact from "./Contact";
 
 
 export default function Home()
@@ -8,6 +10,8 @@ export default function Home()
         <div>
             <Main />
             <About />
+            <Projects/>
+            <Contact/>
         </div>
     )
 }

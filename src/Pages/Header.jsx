@@ -17,10 +17,10 @@ const Header = () => {
   }, []);
 
   return (
-    <div className="fixed top-0 left-1/2 -translate-x-1/2 bg-white">
+    <div className="fixed top-0 left-1/2 -translate-x-1/2 ">
       {isMobile ? (
-        <div className="flex justify-center items-center text-center">
-        <div className="mt-6 w-[240px] h-[45px] rounded-3xl shadow-xl flex gap-2 text-[25px] text-center content-center justify-between px-7 items-center">
+        <div className="flex justify-center items-center text-center ">
+        <div className="mt-6 w-[240px] h-[45px] rounded-3xl shadow-xl flex gap-2 text-[22px] text-center content-center justify-between px-7 items-center bg-white">
             <div><FiHome/></div>
             {/* <div>|</div> */}
             <div><MdWorkOutline/></div>
@@ -30,7 +30,7 @@ const Header = () => {
         </div>
         </div>
       ) : (
-        <div className="w-screen h-[50px] border text-xl flex gap-10 items-center font-bold font-poppins justify-center">
+        <div className="w-screen h-[50px] bg-white text-xl flex gap-10 items-center font-medium font-poppins justify-center ">
           <div>Logo</div>
           <div>Home</div>
           <div>About</div>

@@ -6,6 +6,8 @@ import { FaReact } from "react-icons/fa";
 import { FaAngular } from "react-icons/fa";
 import { SiMongodb } from "react-icons/si";
 import { FaSquareJs } from "react-icons/fa6";
+import { LuMouse } from "react-icons/lu";
+import { MdOutlineKeyboardDoubleArrowDown } from "react-icons/md";
 
 export default function Main() {
   const texts = ["Designer", "Developer", "Coder"];
@@ -20,13 +22,13 @@ export default function Main() {
 
   return (
     <div className="">
-      <div className="w-full h-[80vh] flex flex-col gap-1 items-center font-poppins justify-center content-center">
-        <h1 className="font-bold md:text-xl text-md text-blue-500 ">Hey! I AM</h1>
-        <h1 className="font-bold md:text-3xl text-2xl  ">Mayur Rohokale</h1>
-        <h1 className="font-bold md:text-2xl text-xl ">
+      <div className="w-full h-[95vh] flex flex-col gap-6 items-center font-poppins justify-center content-center">
+        <h1 className="font-bold lg:text-3xl md:text-2xl text-xl text-blue-500 ">Hey! I AM</h1>
+        <h1 className="font-bold lg:text-5xl md:text-4xl text-3xl  ">Mayur Rohokale</h1>
+        <h1 className="font-bold lg:text-4xl md:text-3xl text-2xl ">
           I'm a <span className="text-blue-500">{texts[textIndex]}.</span>
         </h1>
-        <div className="flex gap-2 md:text-xl text-lg mt-2">
+        <div className="flex gap-4 md:text-2xl text-xl mt-4">
           <PiFigmaLogoFill />
           <RiTailwindCssFill />
           <FaSquareJs/>
@@ -35,6 +37,10 @@ export default function Main() {
           <SiMongodb  />
         </div>
       </div>
+      <div className="md:text-4xl text-3xl flex items-center justify-center text-blue-500 animate-bounce ">
+        <MdOutlineKeyboardDoubleArrowDown/>
+      </div>
+      
     </div>
   );
 }
