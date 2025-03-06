@@ -1,11 +1,15 @@
 import axios from "axios";
 import { useState } from "react";
+import ReCAPTCHA from "react-google-recaptcha";
 
-const Backend_Url = import.meta.env.VITE_BACKEND_URL;
+const Backend_Url = import.meta.env.VITE_BACKEND_URL || "http://localhost:3000";
+const SITE_KEY = import.meta.env.VITE_SECRET_KEY;
 export default function Contact() {
   const [successMessage, SetSuccessMessage] = useState();
   const [errorMessage, setErrorMessage] = useState();
   const [loading, setLoading] = useState(false);
+  const [captchaToken, setCaptchaToken] = useState(null);
+//   const [status, setStatus] = useState();
 
   const [formData, setFormData] = useState({
     name: "",
@@ -21,16 +25,28 @@ export default function Contact() {
     });
   };
 
+  const handleCaptchaChange = (token) => {
+    setCaptchaToken(token);
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
     SetSuccessMessage("");
     setErrorMessage("");
     setLoading(true);
+
+    if(!captchaToken){
+        setErrorMessage("Please Enter Captcha");
+        return;
+    }
+
     try {
       const response = await axios.post(
-        `${Backend_Url}/contact`,
-        formData
-      );
+        `${Backend_Url}/contact`,{
+        ...formData,
+        recaptchaToken: captchaToken
+    });
 
       console.log(response.data);
       SetSuccessMessage("Message sent successfully");
@@ -89,6 +105,7 @@ export default function Contact() {
             onChange={handleChange}
             required
           />
+          <ReCAPTCHA sitekey={SITE_KEY} onChange={handleCaptchaChange} />
           <button
             className={`font-bold w-[150px] md:w-[200px] p-3 text-md md:text-lg rounded-lg
                 ${
