@@ -66,7 +66,7 @@ export default function Projects() {
           description="Customized Virtual File System 💻 is a project that replicates the core functionalities of a Linux file system, providing system calls and essential commands through a custom shell 🖥️. By using this project, users can access system-level functionalities typically available on Linux, on any other operating system platform 🌍."
           gitLink="https://github.com/mayurrohokale/Customised-Virtual-File-System"
           techStack={["C", "C++"]}
-          src="/naukari.mp4"
+          src="/cvfs.mp4"
         />
       </div>
     </div>

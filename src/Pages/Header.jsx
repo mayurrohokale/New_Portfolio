@@ -21,7 +21,7 @@ const Header = () => {
   return (
     <div className="fixed top-0 left-1/2 -translate-x-1/2 z-50  ">
       {isMobile ? (
-        <div className="flex justify-center items-center text-center backdrop-blur-sm  rounded-b-3xl  ">
+        <div className="flex justify-center items-center text-center  rounded-b-3xl  ">
         <div className="mt-6 w-[240px] h-[45px] rounded-3xl shadow-xl  flex gap-2 text-[22px] text-center content-center justify-between px-7 items-center bg-white">
             <div>
               <Link to="/"><FiHome/></Link>
