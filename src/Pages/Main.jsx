@@ -8,7 +8,9 @@ import { SiMongodb } from "react-icons/si";
 import { FaSquareJs } from "react-icons/fa6";
 import { LuMouse } from "react-icons/lu";
 import { MdOutlineKeyboardDoubleArrowDown } from "react-icons/md";
-
+// eslint-disable-next-line no-unused-vars
+import { motion } from "framer-motion";
+import { fadeIn } from "../assets/varients";
 
 export default function Main() {
   const texts = ["Designer", "Developer", "Coder"];
@@ -23,34 +25,61 @@ export default function Main() {
 
   return (
     <div className="relative w-full h-screen flex flex-col items-center justify-center font-poppins">
-    {/* Background covering half the screen */}
-    <div className="absolute top-0 left-0 w-1/2 h-full bg-blue-100"></div>
+      {/* Background covering half the screen */}
+      <div className="absolute top-0 left-0 w-1/2 h-full bg-blue-100"></div>
 
-    {/* Content at center */}
-    <div className="relative z-10 flex flex-col gap-4 items-center text-center">
-      <h1 className="font-bold lg:text-xl md:text-xl text-lg text-blue-500">
-        Hey! I AM
-      </h1>
-      <h1 className="font-bold lg:text-5xl md:text-4xl text-3xl">
-        Mayur Rohokale
-      </h1>
-      <h1 className="font-bold lg:text-4xl md:text-3xl text-2xl">
-        I'm a <span className="text-blue-500">{texts[textIndex]}.</span>
-      </h1>
-      <div className="flex gap-4 md:text-2xl text-xl mt-4">
-        <PiFigmaLogoFill />
-        <RiTailwindCssFill />
-        <FaSquareJs />
-        <FaReact />
-        <FaAngular />
-        <SiMongodb />
+      {/* Content at center */}
+      <div className="relative z-10 flex flex-col gap-4 items-center text-center">
+        <motion.div
+          variants={fadeIn("up", 0.2)}
+          initial="hidden"
+          whileInView={"show"}
+          viewport={{ once: false }}
+        >
+          <h1 className="font-bold lg:text-xl md:text-xl text-lg text-blue-500">
+            Hey! I AM
+          </h1>
+        </motion.div>
+        <motion.div
+          variants={fadeIn("up", 0.2)}
+          initial="hidden"
+          whileInView={"show"}
+          viewport={{ once: false }}
+        >
+          <h1 className="font-bold lg:text-5xl md:text-4xl text-3xl">
+            Mayur Rohokale
+          </h1>
+        </motion.div>
+        <motion.div
+          variants={fadeIn("up", 0.2)}
+          initial="hidden"
+          whileInView={"show"}
+          viewport={{ once: false }}
+        >
+          <h1 className="font-bold lg:text-4xl md:text-3xl text-2xl">
+            I'm a <span className="text-blue-500">{texts[textIndex]}.</span>
+          </h1>
+        </motion.div>
+        <motion.div
+          variants={fadeIn("up", 0.2)}
+          initial="hidden"
+          whileInView={"show"}
+          viewport={{ once: false }}
+        >
+          <div className="flex gap-4 md:text-2xl text-xl mt-4">
+            <PiFigmaLogoFill />
+            <RiTailwindCssFill />
+            <FaSquareJs />
+            <FaReact />
+            <FaAngular />
+            <SiMongodb />
+          </div>
+        </motion.div>
+      </div>
+
+      <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2 text-blue-500 animate-bounce md:text-4xl text-3xl">
+        <MdOutlineKeyboardDoubleArrowDown />
       </div>
     </div>
-
-   
-    <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2 text-blue-500 animate-bounce md:text-4xl text-3xl">
-      <MdOutlineKeyboardDoubleArrowDown />
-    </div>
-  </div>
   );
 }

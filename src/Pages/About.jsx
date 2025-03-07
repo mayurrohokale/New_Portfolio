@@ -3,14 +3,24 @@ import SocialButton from "../rusable/social_button";
 import { IoLogoGithub } from "react-icons/io";
 import { TbBrandLinkedinFilled } from "react-icons/tb";
 import { FaSquareXTwitter } from "react-icons/fa6";
-
+// eslint-disable-next-line no-unused-vars
+import { motion } from "framer-motion";
+import { fadeIn } from "../assets/varients";
 export default function About() {
   return (
     <div className="" id="about">
       <div className="">
         <div className="flex lg:flex-row flex-col  justify-center font-poppins">
           <div className="lg:w-1/2 w-full p-4 font-medium ">
-            <h1 className="text-xl md:text-lg font-bold my-3">About Me</h1>
+          <motion.div  variants={fadeIn("up", 0.2)}
+              initial="hidden"
+              whileInView={"show"}
+              viewport={{ once: false }}>
+            <h1 className="text-xl md:text-lg font-bold my-3">About Me</h1></motion.div>
+            <motion.div  variants={fadeIn("up", 0.2)}
+              initial="hidden"
+              whileInView={"show"}
+              viewport={{ once: false }}>
             <p>
               Fully committed to the philosophy of lifelong learning, I’m a
               full-stack developer with a deep passion for JavaScript, React,
@@ -21,21 +31,41 @@ export default function About() {
               love watching global cinema, staying active, and diving into new
               tech trends.
             </p>
+            </motion.div>
+            <motion.div  variants={fadeIn("up", 0.2)}
+              initial="hidden"
+              whileInView={"show"}
+              viewport={{ once: false }}>
             <button className="my-2 p-2 md:p-3 bg-blue-500 rounded-lg text-white">
               <a href="/Mayur CV.pdf" download>Resume/CV</a>
             </button>
+            </motion.div>
+            <motion.div  variants={fadeIn("up", 0.2)}
+              initial="hidden"
+              whileInView={"show"}
+              viewport={{ once: false }}>
             <div className="flex gap-2 py-2">
                 <SocialButton src="https://github.com/mayurrohokale" logo={<IoLogoGithub/>} text="Github" />
                 <SocialButton src="https://www.linkedin.com/in/mayur-rohokale-397a35210/" logo={<TbBrandLinkedinFilled/>} text="LinkedIn"/>
                 <SocialButton src="https://www.x.com/mayurrohokale25/" logo={<FaSquareXTwitter/>} text="Twitter"/>
             </div>
+            </motion.div>
           </div>
           <div className="w-full lg:w-1/2 p-4 bg-blue-100">
+          <motion.div  variants={fadeIn("up", 0.2)}
+              initial="hidden"
+              whileInView={"show"}
+              viewport={{ once: false }}>
             <h1 className="text-xl md:text-lg font-bold my-3">
               Education & Experience
             </h1>
+            </motion.div>
 
             <div className="relative">
+            <motion.div  variants={fadeIn("up", 0.2)}
+              initial="hidden"
+              whileInView={"show"}
+              viewport={{ once: false }}>
               {/* Timeline Line */}
               <div className="absolute left-[26px] top-0 w-1 h-full  bg-blue-500"></div>
 
@@ -97,7 +127,9 @@ export default function About() {
                   </h4>
                 </div>
               </div>
+              </motion.div>
             </div>
+            
           </div>
         </div>
       </div>
