@@ -122,7 +122,7 @@ export default function Contact() {
         <div className="flex justify-center">
         <button
           className={`w-[200px]  md:w-[230px] mt-6 p-3 text-md md:text-lg font-bold rounded-lg transition duration-300
-            ${loading ? "bg-gray-400 cursor-not-allowed" : "bg-blue-500 text-white hover:bg-blue-600"}`}
+            ${loading ? "bg-gray-400 cursor-not-allowed" : "bg-blue-500 text-white hover:bg-blue-600 cursor-pointer"}`}
           type="submit"
           disabled={loading}
         >
