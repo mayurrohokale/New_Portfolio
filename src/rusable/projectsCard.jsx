@@ -33,7 +33,7 @@ export default function ProjectCard({project_name, button_name, date, descriptio
               </button>
               <h2 className="text-gray-400">{date}</h2>
             </div>
-            <p>
+            <p align="justify">
               {description}
             </p>
           </div>

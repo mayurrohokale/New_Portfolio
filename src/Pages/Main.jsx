@@ -1,12 +1,9 @@
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { PiFigmaLogoFill } from "react-icons/pi";
 import { RiTailwindCssFill } from "react-icons/ri";
-import { FaReact } from "react-icons/fa";
-import { FaAngular } from "react-icons/fa";
+import { FaReact, FaAngular } from "react-icons/fa";
 import { SiMongodb } from "react-icons/si";
 import { FaSquareJs } from "react-icons/fa6";
-import { LuMouse } from "react-icons/lu";
 import { MdOutlineKeyboardDoubleArrowDown } from "react-icons/md";
 // eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
@@ -15,13 +12,36 @@ import { fadeIn } from "../assets/varients";
 export default function Main() {
   const texts = ["Designer", "Developer", "Coder"];
   const [textIndex, setTextIndex] = useState(0);
+  const [displayText, setDisplayText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+  const typingSpeed = 150; // Speed of typing
+  const deleteSpeed = 100; // Speed of deleting
+  const pauseTime = 1000; // Pause before deleting
 
   useEffect(() => {
-    const Interval = setInterval(() => {
+    let typingTimeout;
+
+    if (!isDeleting && displayText.length < texts[textIndex].length) {
+      // Typing effect
+      typingTimeout = setTimeout(() => {
+        setDisplayText((prev) => prev + texts[textIndex][prev.length]);
+      }, typingSpeed);
+    } else if (!isDeleting && displayText.length === texts[textIndex].length) {
+      // Wait before deleting
+      typingTimeout = setTimeout(() => setIsDeleting(true), pauseTime);
+    } else if (isDeleting && displayText.length > 0) {
+      // Deleting effect
+      typingTimeout = setTimeout(() => {
+        setDisplayText((prev) => prev.slice(0, -1));
+      }, deleteSpeed);
+    } else if (isDeleting && displayText.length === 0) {
+      // Move to next word
+      setIsDeleting(false);
       setTextIndex((prevIndex) => (prevIndex + 1) % texts.length);
-    }, 2000);
-    return () => clearInterval(Interval);
-  }, []);
+    }
+
+    return () => clearTimeout(typingTimeout);
+  }, [displayText, isDeleting, textIndex]);
 
   return (
     <div className="relative w-full h-screen flex flex-col items-center justify-center font-poppins">
@@ -57,7 +77,8 @@ export default function Main() {
           viewport={{ once: false }}
         >
           <h1 className="font-bold lg:text-4xl md:text-3xl text-2xl">
-            I'm a <span className="text-blue-500">{texts[textIndex]}.</span>
+            I'm a <span className="text-blue-500">{displayText}</span>
+            <span className="animate-blink text-blue-500">.</span>
           </h1>
         </motion.div>
         <motion.div

@@ -21,7 +21,7 @@ export default function About() {
               initial="hidden"
               whileInView={"show"}
               viewport={{ once: false }}>
-            <p>
+            <p align="justify">
               Fully committed to the philosophy of lifelong learning, I’m a
               full-stack developer with a deep passion for JavaScript, React,
               and building scalable web applications. The blend of creativity,
