@@ -5,7 +5,7 @@ import ProjectCard from "../rusable/projectsCard";
 
 export default function Projects() {
   return (
-    <div className="w-full font-poppins">
+    <div className="w-full font-poppins" id="projects">
       <h1 className="text-2xl font-bold justify-center flex">
         Featured Projects
       </h1>

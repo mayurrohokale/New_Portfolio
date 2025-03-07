@@ -28,7 +28,7 @@ const Header = () => {
               </div>
             {/* <div>|</div> */}
             <div>
-              <Link to="/projects"><MdWorkOutline/></Link>
+              <a to="#projects"><MdWorkOutline/></a>
             </div>
             <div>
               <a href="https://github.com/mayurrohokale"><FaGithub/></a>
@@ -37,17 +37,16 @@ const Header = () => {
               <a href="https://www.linkedin.com/in/mayur-rohokale-397a35210/"><TbBrandLinkedinFilled/></a>
             </div>
             <div>
-              <Link to="/contact"><HiOutlinePhone/></Link>
+              <a href="#contact"><HiOutlinePhone/></a>
               </div>
         </div>
         </div>
       ) : (
         <div className="w-screen h-[50px] bg-white text-xl flex gap-10 items-center font-medium font-poppins justify-center ">
-          <div>Logo</div>
-          <div>Home</div>
-          <div>About</div>
-          <div>Projects</div>
-          <div>Contact</div>
+          <div><Link to="/">Home</Link></div>
+          <div><a href="#about">About</a></div>
+          <div><a href="#projects">Projects</a></div>
+          <div><a href="#contact">Contact</a></div>
         </div>
       )}
     </div>

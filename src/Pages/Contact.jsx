@@ -57,8 +57,8 @@ export default function Contact() {
   };
 
   return (
-    <div className="flex flex-col items-center py-8 px-1 md:px-8 lg:px-16 font-poppins">
-      <h1 className="text-3xl font-bold mb-6 text-center">Get in Touch</h1>
+    <div className="flex flex-col items-center mt-4 py-8 px-1 md:px-8 lg:px-16 font-poppins" id="contact">
+      <h1 className="text-3xl font-bold  text-center">Get in Touch</h1>
       <form
         className=" p-2 md:p-8 w-full max-w-2xl"
         onSubmit={handleSubmit}

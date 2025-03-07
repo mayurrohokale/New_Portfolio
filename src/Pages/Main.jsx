@@ -28,7 +28,7 @@ export default function Main() {
 
     {/* Content at center */}
     <div className="relative z-10 flex flex-col gap-4 items-center text-center">
-      <h1 className="font-bold lg:text-2xl md:text-xl text-lg text-blue-500">
+      <h1 className="font-bold lg:text-xl md:text-xl text-lg text-blue-500">
         Hey! I AM
       </h1>
       <h1 className="font-bold lg:text-5xl md:text-4xl text-3xl">
