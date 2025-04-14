@@ -109,7 +109,7 @@ export default function About() {
                     <h3 className="text-gray-600">
                      Python, NextJS
                     </h3>
-                    <h4 className="text-gray-500 text-sm">Jan-2025-Present</h4>
+                    <h4 className="text-gray-500 text-sm">Apr-2025-Present</h4>
                   </div>
                 </div>
 
