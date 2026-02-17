@@ -136,8 +136,8 @@ export default function Building() {
             <div className="rounded-3xl bg-white/60 dark:bg-gray-900/30 border border-white/20 dark:border-white/10 backdrop-blur-xl shadow-2xl overflow-hidden">
               <div className="p-5 sm:p-6 flex items-start justify-between gap-4 border-b border-white/20 dark:border-white/10">
                 <div>
-                  <p className="text-xs font-medium text-gray-700/70 dark:text-gray-200/60">Delivery Map (animated)</p>
-                  <h2 className="mt-1 text-lg sm:text-xl font-semibold text-gray-900 dark:text-white">Farm → Customer (demo)</h2>
+                  <p className="text-xs font-medium text-gray-700/70 dark:text-gray-200/60">Order Flow Map (animated)</p>
+                  <h2 className="mt-1 text-lg sm:text-xl font-semibold text-gray-900 dark:text-white">Farm → Warehouse → Zones (demo)</h2>
                 </div>
                 <span className="shrink-0 inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-purple-600/10 dark:bg-purple-400/10 text-purple-700/80 dark:text-purple-300/80">
                   ETA UI
@@ -239,36 +239,115 @@ export default function Building() {
                   </text>
                 </svg>
 
-                {/* Animated route (dashed) */}
+                {/* Animated flow: farm -> warehouse (bulk), then warehouse -> zone-wise customers */}
                 <svg
                   className="absolute inset-0 w-full h-full"
                   viewBox="0 0 800 450"
                   preserveAspectRatio="none"
                   aria-hidden="true"
                 >
+                  {/* base routes */}
                   <path
-                    d="M120 120 C240 160, 320 210, 420 250 C520 290, 600 315, 690 330"
-                    className="text-blue-500/35 dark:text-blue-400/25"
+                    d="M160 120 C240 155, 315 195, 410 230"
+                    className="text-gray-900/10 dark:text-white/10"
                     fill="none"
                     stroke="currentColor"
-                    strokeWidth="5"
+                    strokeWidth="6"
                     strokeLinecap="round"
                   />
+                  <path
+                    d="M410 230 C480 205, 540 180, 600 150"
+                    className="text-gray-900/10 dark:text-white/10"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="6"
+                    strokeLinecap="round"
+                  />
+                  <path
+                    d="M410 230 C485 260, 545 290, 600 320"
+                    className="text-gray-900/10 dark:text-white/10"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="6"
+                    strokeLinecap="round"
+                  />
+                  <path
+                    d="M410 230 C485 235, 545 235, 610 230"
+                    className="text-gray-900/10 dark:text-white/10"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="6"
+                    strokeLinecap="round"
+                  />
+
+                  {/* Incoming bulk (farm -> warehouse): blue dashed moving toward warehouse */}
                   <motion.path
-                    d="M120 120 C240 160, 320 210, 420 250 C520 290, 600 315, 690 330"
+                    d="M160 120 C240 155, 315 195, 410 230"
                     className="text-blue-500 dark:text-blue-400"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="3"
+                    strokeLinecap="round"
+                    strokeDasharray="9 12"
+                    animate={{ strokeDashoffset: [120, 0] }}
+                    transition={{ duration: 2.2, repeat: Infinity, ease: "linear" }}
+                  />
+
+                  {/* Zone-wise distribution (warehouse -> customers): purple dashed moving outward */}
+                  <motion.path
+                    d="M410 230 C480 205, 540 180, 600 150"
+                    className="text-purple-500 dark:text-purple-400"
                     fill="none"
                     stroke="currentColor"
                     strokeWidth="3"
                     strokeLinecap="round"
                     strokeDasharray="8 10"
                     animate={{ strokeDashoffset: [0, -90] }}
-                    transition={{ duration: 2.4, repeat: Infinity, ease: "linear" }}
+                    transition={{ duration: 2.6, repeat: Infinity, ease: "linear" }}
                   />
+                  <motion.path
+                    d="M410 230 C485 235, 545 235, 610 230"
+                    className="text-purple-500 dark:text-purple-400"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="3"
+                    strokeLinecap="round"
+                    strokeDasharray="8 10"
+                    animate={{ strokeDashoffset: [0, -90] }}
+                    transition={{ duration: 2.6, repeat: Infinity, ease: "linear", delay: 0.25 }}
+                  />
+                  <motion.path
+                    d="M410 230 C485 260, 545 290, 600 320"
+                    className="text-purple-500 dark:text-purple-400"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="3"
+                    strokeLinecap="round"
+                    strokeDasharray="8 10"
+                    animate={{ strokeDashoffset: [0, -90] }}
+                    transition={{ duration: 2.6, repeat: Infinity, ease: "linear", delay: 0.5 }}
+                  />
+
+                  {/* subtle labels */}
+                  <text x="146" y="102" className="text-gray-700/45 dark:text-gray-200/25" fill="currentColor" fontSize="12">
+                    Farm
+                  </text>
+                  <text x="392" y="215" className="text-gray-700/45 dark:text-gray-200/25" fill="currentColor" fontSize="12">
+                    Warehouse
+                  </text>
+                  <text x="565" y="140" className="text-gray-700/45 dark:text-gray-200/25" fill="currentColor" fontSize="12">
+                    Zone A
+                  </text>
+                  <text x="575" y="225" className="text-gray-700/45 dark:text-gray-200/25" fill="currentColor" fontSize="12">
+                    Zone B
+                  </text>
+                  <text x="565" y="345" className="text-gray-700/45 dark:text-gray-200/25" fill="currentColor" fontSize="12">
+                    Zone C
+                  </text>
                 </svg>
 
-                {/* Pins */}
-                <div className="absolute left-10 top-10">
+                {/* Pins: farm -> warehouse -> multiple customers */}
+                <div className="absolute left-[135px] top-[95px]">
                   <div className="relative">
                     <div className="h-3.5 w-3.5 rounded-full bg-blue-500 dark:bg-blue-400 shadow-[0_0_0_8px_rgba(59,130,246,0.12)]" />
                     <div className="absolute -bottom-7 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-xl bg-white/75 dark:bg-gray-950/30 border border-white/20 dark:border-white/10 backdrop-blur-xl px-2 py-1 text-[11px] text-gray-800/80 dark:text-gray-200/80">
@@ -276,7 +355,11 @@ export default function Building() {
                     </div>
                   </div>
                 </div>
-                <div className="absolute right-14 bottom-16">
+                {/* Customers alongside (right of centered warehouse) */}
+                <div
+                  className="absolute left-1/2 top-1/2"
+                  style={{ transform: "translate(-50%, -50%) translate(190px, -90px)" }}
+                >
                   <div className="relative">
                     <div className="h-3.5 w-3.5 rounded-full bg-purple-500 dark:bg-purple-400 shadow-[0_0_0_8px_rgba(168,85,247,0.12)]" />
                     <div className="absolute -bottom-7 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-xl bg-white/75 dark:bg-gray-950/30 border border-white/20 dark:border-white/10 backdrop-blur-xl px-2 py-1 text-[11px] text-gray-800/80 dark:text-gray-200/80">
@@ -284,14 +367,65 @@ export default function Building() {
                     </div>
                   </div>
                 </div>
-
-                {/* Moving marker */}
-                <motion.div
-                  className="absolute left-[70px] top-[70px]"
-                  animate={{ x: [0, 180, 340, 520], y: [0, 55, 120, 170] }}
-                  transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
+                <div
+                  className="absolute left-1/2 top-1/2"
+                  style={{ transform: "translate(-50%, -50%) translate(210px, -5px)" }}
                 >
-                  <div className="h-3 w-3 rounded-full bg-blue-600 dark:bg-blue-400 shadow-[0_0_0_10px_rgba(59,130,246,0.14)]" />
+                  <div className="relative">
+                    <div className="h-3.5 w-3.5 rounded-full bg-purple-500 dark:bg-purple-400 shadow-[0_0_0_8px_rgba(168,85,247,0.12)]" />
+                    <div className="absolute -bottom-7 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-xl bg-white/75 dark:bg-gray-950/30 border border-white/20 dark:border-white/10 backdrop-blur-xl px-2 py-1 text-[11px] text-gray-800/80 dark:text-gray-200/80">
+                      Customer
+                    </div>
+                  </div>
+                </div>
+                <div
+                  className="absolute left-1/2 top-1/2"
+                  style={{ transform: "translate(-50%, -50%) translate(190px, 95px)" }}
+                >
+                  <div className="relative">
+                    <div className="h-3.5 w-3.5 rounded-full bg-purple-500 dark:bg-purple-400 shadow-[0_0_0_8px_rgba(168,85,247,0.12)]" />
+                    <div className="absolute -bottom-7 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-xl bg-white/75 dark:bg-gray-950/30 border border-white/20 dark:border-white/10 backdrop-blur-xl px-2 py-1 text-[11px] text-gray-800/80 dark:text-gray-200/80">
+                      Customer
+                    </div>
+                  </div>
+                </div>
+                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+                  <div className="relative">
+                    <div className="h-4 w-4 rounded-full bg-blue-500 dark:bg-blue-400 shadow-[0_0_0_10px_rgba(59,130,246,0.14)]" />
+                    <div className="absolute -bottom-7 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-xl bg-white/75 dark:bg-gray-950/30 border border-white/20 dark:border-white/10 backdrop-blur-xl px-2 py-1 text-[11px] text-gray-800/80 dark:text-gray-200/80">
+                      Warehouse
+                    </div>
+                  </div>
+                </div>
+
+                {/* Moving dots */}
+                <motion.div
+                  className="absolute left-[155px] top-[115px]"
+                  animate={{ x: [0, 60, 125, 190], y: [0, 22, 48, 78] }}
+                  transition={{ duration: 2.2, repeat: Infinity, ease: "linear" }}
+                >
+                  <div className="h-2.5 w-2.5 rounded-full bg-blue-600 dark:bg-blue-400 shadow-[0_0_0_8px_rgba(59,130,246,0.12)]" />
+                </motion.div>
+                <motion.div
+                  className="absolute left-1/2 top-1/2"
+                  animate={{ x: [0, 80, 150, 195], y: [0, -18, -55, -90] }}
+                  transition={{ duration: 2.6, repeat: Infinity, ease: "linear" }}
+                >
+                  <div className="h-2.5 w-2.5 rounded-full bg-purple-600 dark:bg-purple-400 shadow-[0_0_0_8px_rgba(168,85,247,0.12)]" />
+                </motion.div>
+                <motion.div
+                  className="absolute left-1/2 top-1/2"
+                  animate={{ x: [0, 90, 170, 215], y: [0, -2, -10, -5] }}
+                  transition={{ duration: 2.6, repeat: Infinity, ease: "linear", delay: 0.25 }}
+                >
+                  <div className="h-2.5 w-2.5 rounded-full bg-purple-600 dark:bg-purple-400 shadow-[0_0_0_8px_rgba(168,85,247,0.12)]" />
+                </motion.div>
+                <motion.div
+                  className="absolute left-1/2 top-1/2"
+                  animate={{ x: [0, 80, 150, 195], y: [0, 35, 70, 95] }}
+                  transition={{ duration: 2.6, repeat: Infinity, ease: "linear", delay: 0.5 }}
+                >
+                  <div className="h-2.5 w-2.5 rounded-full bg-purple-600 dark:bg-purple-400 shadow-[0_0_0_8px_rgba(168,85,247,0.12)]" />
                 </motion.div>
 
                 {/* Map-like controls */}
@@ -320,16 +454,16 @@ export default function Building() {
               <div className="p-5 sm:p-6 border-t border-white/20 dark:border-white/10">
                 <div className="grid grid-cols-3 gap-3">
                   <div className="rounded-2xl bg-white/55 dark:bg-gray-950/20 border border-white/25 dark:border-white/10 p-4 shadow-lg">
-                    <p className="text-[11px] text-gray-700/70 dark:text-gray-200/60">Packing</p>
-                    <p className="mt-1 text-sm font-semibold text-gray-900 dark:text-white">Live</p>
+                    <p className="text-[11px] text-gray-700/70 dark:text-gray-200/60">Farm Pickup</p>
+                    <p className="mt-1 text-sm font-semibold text-gray-900 dark:text-white">Inbound</p>
                   </div>
                   <div className="rounded-2xl bg-white/55 dark:bg-gray-950/20 border border-white/25 dark:border-white/10 p-4 shadow-lg">
-                    <p className="text-[11px] text-gray-700/70 dark:text-gray-200/60">Dispatch</p>
-                    <p className="mt-1 text-sm font-semibold text-gray-900 dark:text-white">Queued</p>
+                    <p className="text-[11px] text-gray-700/70 dark:text-gray-200/60">Zone Sort</p>
+                    <p className="mt-1 text-sm font-semibold text-gray-900 dark:text-white">Active</p>
                   </div>
                   <div className="rounded-2xl bg-white/55 dark:bg-gray-950/20 border border-white/25 dark:border-white/10 p-4 shadow-lg">
-                    <p className="text-[11px] text-gray-700/70 dark:text-gray-200/60">ETA</p>
-                    <p className="mt-1 text-sm font-semibold text-gray-900 dark:text-white">~ 3h</p>
+                    <p className="text-[11px] text-gray-700/70 dark:text-gray-200/60">Out for Delivery</p>
+                    <p className="mt-1 text-sm font-semibold text-gray-900 dark:text-white">Zone-wise</p>
                   </div>
                 </div>
               </div>
