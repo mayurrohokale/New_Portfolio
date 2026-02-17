@@ -82,39 +82,9 @@ export default function Contact() {
 
   return (
     <div
-      className="relative min-h-screen flex flex-col items-center py-20 px-4 md:px-8 lg:px-16 font-poppins overflow-hidden bg-gradient-to-b from-white via-blue-50 to-white"
+      className="relative min-h-screen flex flex-col items-center py-20 px-4 md:px-8 lg:px-16 font-poppins overflow-hidden"
       id="contact"
     >
-      {/* Decorative Background Elements */}
-      <div className="absolute top-20 right-20 w-96 h-96 bg-blue-200 rounded-full blur-3xl opacity-20 animate-pulse"></div>
-      <div className="absolute bottom-40 left-20 w-96 h-96 bg-purple-200 rounded-full blur-3xl opacity-20 animate-pulse" style={{ animationDelay: "1.5s" }}></div>
-
-      {/* Floating geometric shapes */}
-      <motion.div
-        className="absolute top-1/4 left-1/4 w-20 h-20 border-2 border-blue-300 rotate-45 opacity-10"
-        animate={{
-          rotate: [45, 225, 45],
-          y: [0, -20, 0],
-        }}
-        transition={{
-          duration: 10,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-      />
-
-      <motion.div
-        className="absolute bottom-1/3 right-1/4 w-24 h-24 border-2 border-purple-300 rounded-full opacity-10"
-        animate={{
-          scale: [1, 1.2, 1],
-          x: [0, 20, 0],
-        }}
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-      />
 
       {/* Header Section */}
       <div className="relative max-w-4xl w-full mb-8 md:mb-12 text-center px-4">
@@ -125,20 +95,11 @@ export default function Contact() {
           viewport={{ once: false }}
         >
           <motion.h1
-            className="text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent inline-block relative mb-4"
-            animate={{
-              backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
-            }}
-            transition={{
-              duration: 5,
-              repeat: Infinity,
-              ease: "linear",
-            }}
-            style={{ backgroundSize: "200% 200%" }}
+            className="text-3xl sm:text-4xl md:text-5xl font-bold text-blue-500 dark:text-blue-400 inline-block relative mb-4"
           >
             Get in Touch
             <motion.div
-              className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 h-1 bg-gradient-to-r from-transparent via-blue-500 to-transparent"
+              className="absolute -bottom-2 left-0 h-1 bg-blue-500 dark:bg-blue-400"
               initial={{ width: 0 }}
               whileInView={{ width: "100%" }}
               viewport={{ once: false }}
@@ -148,7 +109,7 @@ export default function Contact() {
         </motion.div>
 
         <motion.p
-          className="text-gray-600 mt-4 md:mt-6 text-base md:text-lg max-w-2xl mx-auto px-4"
+          className="text-gray-600 dark:text-gray-300 mt-4 md:mt-6 text-base md:text-lg max-w-2xl mx-auto px-4"
           variants={fadeIn("up", 0.3)}
           initial="hidden"
           whileInView={"show"}
@@ -158,19 +119,15 @@ export default function Contact() {
         </motion.p>
 
         {/* Decorative email icon */}
-        <motion.div
-          className="absolute -top-8 left-1/2 transform -translate-x-1/2"
-          animate={{
-            y: [0, -10, 0],
-          }}
-          transition={{
-            duration: 2,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        >
-          <div className="text-4xl">📧</div>
-        </motion.div>
+        <div className="absolute -top-8 left-0 right-0 flex justify-center">
+          <motion.div
+            animate={{ y: [0, -10, 0] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            className="h-12 w-12 rounded-2xl bg-gradient-to-r from-blue-500 to-purple-500 shadow-lg flex items-center justify-center"
+          >
+            <HiMail className="text-white text-2xl" />
+          </motion.div>
+        </div>
       </div>
 
       {/* Form Container */}
@@ -181,10 +138,10 @@ export default function Contact() {
         viewport={{ once: false }}
         transition={{ duration: 0.6 }}
       >
-        <div className="relative bg-white rounded-2xl md:rounded-3xl shadow-2xl p-6 sm:p-8 md:p-12 border border-gray-100 hover:border-blue-200 transition-all duration-500">
+        <div className="relative bg-white dark:bg-gray-800 rounded-2xl md:rounded-3xl shadow-2xl p-6 sm:p-8 md:p-12 border border-gray-100 dark:border-gray-700 hover:border-blue-200 dark:hover:border-blue-500 transition-all duration-500">
           {/* Decorative corner elements */}
-          <div className="absolute top-0 left-0 w-16 h-16 md:w-24 md:h-24 border-t-4 border-l-4 border-blue-500 rounded-tl-2xl md:rounded-tl-3xl opacity-30"></div>
-          <div className="absolute bottom-0 right-0 w-16 h-16 md:w-24 md:h-24 border-b-4 border-r-4 border-blue-500 rounded-br-2xl md:rounded-br-3xl opacity-30"></div>
+          <div className="absolute top-0 left-0 w-16 h-16 md:w-24 md:h-24 border-t-4 border-l-4 border-blue-500 dark:border-blue-400 rounded-tl-2xl md:rounded-tl-3xl opacity-30"></div>
+          <div className="absolute bottom-0 right-0 w-16 h-16 md:w-24 md:h-24 border-b-4 border-r-4 border-blue-500 dark:border-blue-400 rounded-br-2xl md:rounded-br-3xl opacity-30"></div>
 
           {/* Glow effect */}
           <motion.div
@@ -209,8 +166,8 @@ export default function Contact() {
                 whileInView={"show"}
                 viewport={{ once: false }}
               >
-                <label className="flex items-center gap-2 font-semibold text-gray-700 mb-2 text-sm md:text-base">
-                  <HiUser className="text-blue-500 text-lg md:text-xl" />
+                <label className="flex items-center gap-2 font-semibold text-gray-700 dark:text-gray-300 mb-2 text-sm md:text-base">
+                  <HiUser className="text-blue-500 dark:text-blue-400 text-lg md:text-xl" />
                   Name
                 </label>
                 <div className="relative group">
@@ -218,7 +175,7 @@ export default function Contact() {
                     type="text"
                     name="name"
                     placeholder="John Doe"
-                    className="w-full border-2 border-gray-200 p-2.5 md:p-3 pl-3 md:pl-4 rounded-lg md:rounded-xl text-sm md:text-base focus:outline-none focus:border-blue-500 focus:ring-2 md:focus:ring-4 focus:ring-blue-100 transition-all duration-300 bg-gray-50 focus:bg-white"
+                    className="w-full border-2 border-gray-200 dark:border-gray-600 p-2.5 md:p-3 pl-3 md:pl-4 rounded-lg md:rounded-xl text-sm md:text-base focus:outline-none focus:border-blue-500 dark:focus:border-blue-400 focus:ring-2 md:focus:ring-4 focus:ring-blue-100 dark:focus:ring-blue-900/50 transition-all duration-300 bg-gray-50 dark:bg-gray-700 focus:bg-white dark:focus:bg-gray-600 text-gray-900 dark:text-white"
                     value={formData.name}
                     onChange={handleChange}
                     onFocus={() => setFocusedField("name")}
@@ -243,8 +200,8 @@ export default function Contact() {
                 whileInView={"show"}
                 viewport={{ once: false }}
               >
-                <label className="flex items-center gap-2 font-semibold text-gray-700 mb-2 text-sm md:text-base">
-                  <HiMail className="text-blue-500 text-lg md:text-xl" />
+                <label className="flex items-center gap-2 font-semibold text-gray-700 dark:text-gray-300 mb-2 text-sm md:text-base">
+                  <HiMail className="text-blue-500 dark:text-blue-400 text-lg md:text-xl" />
                   Email
                 </label>
                 <div className="relative group">
@@ -252,7 +209,7 @@ export default function Contact() {
                     type="email"
                     name="email"
                     placeholder="john@example.com"
-                    className="w-full border-2 border-gray-200 p-2.5 md:p-3 pl-3 md:pl-4 rounded-lg md:rounded-xl text-sm md:text-base focus:outline-none focus:border-blue-500 focus:ring-2 md:focus:ring-4 focus:ring-blue-100 transition-all duration-300 bg-gray-50 focus:bg-white"
+                    className="w-full border-2 border-gray-200 dark:border-gray-600 p-2.5 md:p-3 pl-3 md:pl-4 rounded-lg md:rounded-xl text-sm md:text-base focus:outline-none focus:border-blue-500 dark:focus:border-blue-400 focus:ring-2 md:focus:ring-4 focus:ring-blue-100 dark:focus:ring-blue-900/50 transition-all duration-300 bg-gray-50 dark:bg-gray-700 focus:bg-white dark:focus:bg-gray-600 text-gray-900 dark:text-white"
                     value={formData.email}
                     onChange={handleChange}
                     onFocus={() => setFocusedField("email")}
@@ -278,14 +235,14 @@ export default function Contact() {
               viewport={{ once: false }}
               className="mb-4 md:mb-6"
             >
-              <label className="flex items-center gap-2 font-semibold text-gray-700 mb-2 text-sm md:text-base">
-                <MdSubject className="text-blue-500 text-lg md:text-xl" />
+              <label className="flex items-center gap-2 font-semibold text-gray-700 dark:text-gray-300 mb-2 text-sm md:text-base">
+                <MdSubject className="text-blue-500 dark:text-blue-400 text-lg md:text-xl" />
                 Subject
               </label>
               <div className="relative">
                 <motion.select
                   name="subject"
-                  className="w-full border-2 border-gray-200 p-2.5 md:p-3 pl-3 md:pl-4 rounded-lg md:rounded-xl text-sm md:text-base focus:outline-none focus:border-blue-500 focus:ring-2 md:focus:ring-4 focus:ring-blue-100 transition-all duration-300 bg-gray-50 focus:bg-white appearance-none cursor-pointer"
+                  className="w-full border-2 border-gray-200 dark:border-gray-600 p-2.5 md:p-3 pl-3 md:pl-4 rounded-lg md:rounded-xl text-sm md:text-base focus:outline-none focus:border-blue-500 dark:focus:border-blue-400 focus:ring-2 md:focus:ring-4 focus:ring-blue-100 dark:focus:ring-blue-900/50 transition-all duration-300 bg-gray-50 dark:bg-gray-700 focus:bg-white dark:focus:bg-gray-600 appearance-none cursor-pointer text-gray-900 dark:text-white"
                   value={formData.subject}
                   onChange={handleChange}
                   onFocus={() => setFocusedField("subject")}
@@ -320,15 +277,15 @@ export default function Contact() {
               viewport={{ once: false }}
               className="mb-4 md:mb-6"
             >
-              <label className="flex items-center gap-2 font-semibold text-gray-700 mb-2 text-sm md:text-base">
-                <HiPencilAlt className="text-blue-500 text-lg md:text-xl" />
+              <label className="flex items-center gap-2 font-semibold text-gray-700 dark:text-gray-300 mb-2 text-sm md:text-base">
+                <HiPencilAlt className="text-blue-500 dark:text-blue-400 text-lg md:text-xl" />
                 Message
               </label>
               <div className="relative">
                 <motion.textarea
                   name="message"
                   placeholder="Tell me about your project or inquiry..."
-                  className="w-full border-2 border-gray-200 p-2.5 md:p-3 pl-3 md:pl-4 rounded-lg md:rounded-xl text-sm md:text-base focus:outline-none focus:border-blue-500 focus:ring-2 md:focus:ring-4 focus:ring-blue-100 transition-all duration-300 h-32 sm:h-40 resize-none bg-gray-50 focus:bg-white"
+                  className="w-full border-2 border-gray-200 dark:border-gray-600 p-2.5 md:p-3 pl-3 md:pl-4 rounded-lg md:rounded-xl text-sm md:text-base focus:outline-none focus:border-blue-500 dark:focus:border-blue-400 focus:ring-2 md:focus:ring-4 focus:ring-blue-100 dark:focus:ring-blue-900/50 transition-all duration-300 h-32 sm:h-40 resize-none bg-gray-50 dark:bg-gray-700 focus:bg-white dark:focus:bg-gray-600 text-gray-900 dark:text-white"
                   value={formData.message}
                   onChange={handleChange}
                   onFocus={() => setFocusedField("message")}
@@ -343,7 +300,7 @@ export default function Contact() {
                   transition={{ duration: 0.3 }}
                 />
                 {/* Character count */}
-                <div className="absolute bottom-2 md:bottom-3 right-2 md:right-3 text-xs text-gray-400">
+                <div className="absolute bottom-2 md:bottom-3 right-2 md:right-3 text-xs text-gray-400 dark:text-gray-500">
                   {formData.message.length}
                 </div>
               </div>
@@ -373,8 +330,8 @@ export default function Contact() {
                 className={`relative px-6 sm:px-8 py-3 sm:py-4 rounded-full font-bold text-base sm:text-lg shadow-lg transition-all duration-300 overflow-hidden group min-w-[180px] sm:min-w-[200px] md:min-w-[250px]
                   ${
                     loading
-                      ? "bg-gray-400 cursor-not-allowed"
-                      : "bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white cursor-pointer"
+                      ? "bg-gray-400 dark:bg-gray-600 cursor-not-allowed"
+                      : "bg-gradient-to-r from-blue-500 to-blue-600 dark:from-blue-600 dark:to-blue-700 hover:from-blue-600 hover:to-blue-700 dark:hover:from-blue-700 dark:hover:to-blue-800 text-white cursor-pointer"
                   }`}
                 type="submit"
                 disabled={loading}
@@ -384,7 +341,7 @@ export default function Contact() {
                 {/* Animated background */}
                 {!loading && (
                   <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-600"
+                    className="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-600 dark:from-purple-700 dark:to-blue-700"
                     initial={{ x: "-100%" }}
                     whileHover={{ x: 0 }}
                     transition={{ duration: 0.3 }}
@@ -427,7 +384,7 @@ export default function Contact() {
             {/* Success Message */}
             {successMessage && (
               <motion.div
-                className="mt-4 md:mt-6 text-green-700 text-center font-semibold p-3 md:p-4 text-sm md:text-base bg-gradient-to-r from-green-50 to-green-100 border-2 border-green-400 rounded-xl md:rounded-2xl shadow-lg relative overflow-hidden"
+                className="mt-4 md:mt-6 text-green-700 dark:text-green-300 text-center font-semibold p-3 md:p-4 text-sm md:text-base bg-gradient-to-r from-green-50 to-green-100 dark:from-green-900/30 dark:to-green-800/30 border-2 border-green-400 dark:border-green-600 rounded-xl md:rounded-2xl shadow-lg relative overflow-hidden"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
@@ -447,7 +404,7 @@ export default function Contact() {
             {/* Error Message */}
             {errorMessage && (
               <motion.div
-                className="mt-4 md:mt-6 text-red-700 text-center font-semibold p-3 md:p-4 text-sm md:text-base bg-gradient-to-r from-red-50 to-red-100 border-2 border-red-400 rounded-xl md:rounded-2xl shadow-lg relative overflow-hidden"
+                className="mt-4 md:mt-6 text-red-700 dark:text-red-300 text-center font-semibold p-3 md:p-4 text-sm md:text-base bg-gradient-to-r from-red-50 to-red-100 dark:from-red-900/30 dark:to-red-800/30 border-2 border-red-400 dark:border-red-600 rounded-xl md:rounded-2xl shadow-lg relative overflow-hidden"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
@@ -469,7 +426,7 @@ export default function Contact() {
 
       {/* Bottom decoration */}
       <motion.div
-        className="mt-8 md:mt-12 text-center text-gray-500 text-xs sm:text-sm px-4"
+        className="mt-8 md:mt-12 text-center text-gray-500 dark:text-gray-400 text-xs sm:text-sm px-4"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: false }}

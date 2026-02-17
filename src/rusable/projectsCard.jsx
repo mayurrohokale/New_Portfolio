@@ -1,6 +1,7 @@
 import TechButton from "./techButton";
 import { TbWorld } from "react-icons/tb";
 import { IoLogoGithub } from "react-icons/io";
+// eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
 import { useState } from "react";
 
@@ -29,7 +30,7 @@ export default function ProjectCard({
     >
       {/* Card container with 3D effect */}
       <motion.div
-        className="relative bg-white rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden border border-gray-100 hover:border-blue-200 transition-all duration-500"
+        className="relative bg-white dark:bg-gray-800 rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden border border-gray-100 dark:border-gray-700 hover:border-blue-200 dark:hover:border-blue-500 transition-all duration-500"
         style={{
           transformStyle: "preserve-3d",
         }}
@@ -67,7 +68,7 @@ export default function ProjectCard({
 
           {/* Date badge with glass effect */}
           <motion.div
-            className="absolute top-2 right-2 sm:top-4 sm:right-4 backdrop-blur-md bg-white/80 px-2 py-1 sm:px-3 sm:py-1.5 rounded-full text-xs font-semibold text-gray-700 shadow-lg z-20"
+            className="absolute top-2 right-2 sm:top-4 sm:right-4 backdrop-blur-md bg-white/80 dark:bg-gray-800/80 px-2 py-1 sm:px-3 sm:py-1.5 rounded-full text-xs font-semibold text-gray-700 dark:text-gray-300 shadow-lg z-20"
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.3 }}
@@ -96,7 +97,7 @@ export default function ProjectCard({
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.2 }}
           >
-            <h1 className="font-bold text-xl sm:text-2xl text-gray-800 mb-2 relative inline-block">
+            <h1 className="font-bold text-xl sm:text-2xl text-gray-800 dark:text-white mb-2 relative inline-block">
               {project_name}
               <motion.div
                 className={`absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r ${gradient}`}
@@ -110,7 +111,7 @@ export default function ProjectCard({
 
           {/* Description with custom scrollbar */}
           <motion.p
-            className="text-gray-600 text-xs sm:text-sm leading-relaxed mb-4 h-[100px] sm:h-[120px] overflow-y-auto pr-2"
+            className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm leading-relaxed mb-4 h-[100px] sm:h-[120px] overflow-y-auto pr-2"
             style={{
               scrollbarWidth: "thin",
               scrollbarColor: "#93C5FD #E5E7EB",
@@ -130,10 +131,10 @@ export default function ProjectCard({
             transition={{ delay: 0.4 }}
           >
             <div className="flex items-center gap-2 mb-2">
-              <span className="text-[10px] sm:text-xs font-semibold text-gray-500 uppercase tracking-wider">
+              <span className="text-[10px] sm:text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                 Tech Stack
               </span>
-              <div className="flex-1 h-px bg-gradient-to-r from-gray-300 to-transparent" />
+              <div className="flex-1 h-px bg-gradient-to-r from-gray-300 dark:from-gray-600 to-transparent" />
             </div>
             <div className="flex flex-wrap gap-2">
               {techStack.map((tech, idx) => (
@@ -152,7 +153,7 @@ export default function ProjectCard({
 
           {/* Action Buttons with enhanced styling */}
           <motion.div
-            className="flex gap-2 sm:gap-3 pt-3 sm:pt-4 border-t border-gray-100"
+            className="flex gap-2 sm:gap-3 pt-3 sm:pt-4 border-t border-gray-100 dark:border-gray-700"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
@@ -162,7 +163,7 @@ export default function ProjectCard({
                 href={gitLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 flex items-center justify-center gap-1.5 sm:gap-2 bg-gray-800 hover:bg-gray-900 text-white px-3 sm:px-4 py-2 sm:py-2.5 rounded-lg sm:rounded-xl font-semibold text-xs sm:text-sm shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden group"
+                className="flex-1 flex items-center justify-center gap-1.5 sm:gap-2 bg-gray-800 hover:bg-gray-900 dark:bg-gray-700 dark:hover:bg-gray-600 text-white px-3 sm:px-4 py-2 sm:py-2.5 rounded-lg sm:rounded-xl font-semibold text-xs sm:text-sm shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden group"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >

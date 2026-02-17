@@ -63,37 +63,7 @@ export default function Projects() {
   ];
 
   return (
-    <div className="relative w-full font-poppins py-12 sm:py-16 md:py-20 overflow-hidden bg-gradient-to-b from-blue-50 via-white to-blue-50" id="projects">
-      {/* Decorative Background Elements */}
-      <div className="absolute top-10 left-10 sm:top-20 sm:left-20 w-64 h-64 sm:w-96 sm:h-96 bg-blue-200 rounded-full blur-3xl opacity-20 animate-pulse"></div>
-      <div className="absolute bottom-20 right-10 sm:bottom-40 sm:right-20 w-64 h-64 sm:w-96 sm:h-96 bg-purple-200 rounded-full blur-3xl opacity-20 animate-pulse" style={{ animationDelay: "1.5s" }}></div>
-
-      {/* Floating geometric shapes */}
-      <motion.div
-        className="absolute top-1/3 right-1/4 w-24 h-24 border-2 border-blue-300 rotate-12 opacity-10"
-        animate={{
-          rotate: [12, 192, 12],
-          y: [0, -30, 0],
-        }}
-        transition={{
-          duration: 15,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-      />
-
-      <motion.div
-        className="absolute bottom-1/4 left-1/4 w-32 h-32 border-2 border-purple-300 rounded-full opacity-10"
-        animate={{
-          scale: [1, 1.3, 1],
-          x: [0, 30, 0],
-        }}
-        transition={{
-          duration: 12,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-      />
+    <div className="relative w-full font-poppins py-12 sm:py-16 md:py-20 overflow-hidden" id="projects">
 
       <div className="relative max-w-7xl mx-auto px-4">
         {/* Header Section */}
@@ -102,23 +72,14 @@ export default function Projects() {
           initial="hidden"
           whileInView={"show"}
           viewport={{ once: false }}
-          className="text-center mb-10 sm:mb-12 md:mb-16"
+          className="text-center mb-10 sm:mb-12 md:mb-16 relative"
         >
           <motion.h1
-            className="text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent inline-block relative"
-            animate={{
-              backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
-            }}
-            transition={{
-              duration: 5,
-              repeat: Infinity,
-              ease: "linear",
-            }}
-            style={{ backgroundSize: "200% 200%" }}
+            className="text-3xl sm:text-4xl md:text-5xl font-bold text-blue-500 dark:text-blue-400 inline-block relative"
           >
             Featured Projects
             <motion.div
-              className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 h-1 bg-gradient-to-r from-transparent via-blue-500 to-transparent"
+              className="absolute -bottom-3 left-0 h-1 bg-blue-500 dark:bg-blue-400"
               initial={{ width: 0 }}
               whileInView={{ width: "100%" }}
               viewport={{ once: false }}
@@ -127,22 +88,18 @@ export default function Projects() {
           </motion.h1>
 
           {/* Decorative elements around title */}
-          <motion.div
-            className="absolute left-1/2 top-0 transform -translate-x-1/2 -translate-y-12"
-            animate={{
-              rotate: 360,
-            }}
-            transition={{
-              duration: 20,
-              repeat: Infinity,
-              ease: "linear",
-            }}
-          >
-            <div className="text-blue-400 text-2xl">✨</div>
-          </motion.div>
+          <div className="absolute left-0 right-0 -top-12 flex justify-center">
+            <motion.div
+              animate={{ rotate: 360 }}
+              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+              className="h-10 w-10 rounded-xl bg-gradient-to-r from-blue-500 to-purple-500 shadow-md flex items-center justify-center"
+            >
+              <span className="text-white text-lg leading-none">✨</span>
+            </motion.div>
+          </div>
 
           <motion.p
-            className="text-gray-600 mt-4 sm:mt-6 max-w-2xl mx-auto text-base sm:text-lg px-4"
+            className="text-gray-600 dark:text-gray-300 mt-4 sm:mt-6 max-w-2xl mx-auto text-base sm:text-lg px-4"
             variants={fadeIn("up", 0.3)}
             initial="hidden"
             whileInView={"show"}
@@ -180,7 +137,7 @@ export default function Projects() {
             href="https://github.com/mayurrohokale"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 sm:gap-3 px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base bg-gradient-to-r from-gray-800 to-gray-900 text-white rounded-full font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 group relative overflow-hidden"
+            className="inline-flex items-center gap-2 sm:gap-3 px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base bg-gradient-to-r from-gray-800 to-gray-900 dark:from-gray-700 dark:to-gray-800 text-white rounded-full font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 group relative overflow-hidden"
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
           >

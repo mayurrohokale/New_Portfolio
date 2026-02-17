@@ -48,17 +48,7 @@ export default function About() {
   ];
 
   return (
-    <div className="relative py-12 sm:py-16 md:py-20 overflow-hidden bg-gradient-to-b from-white to-blue-50" id="about">
-      {/* Decorative Background Elements */}
-      <div className="absolute top-10 right-10 sm:top-20 sm:right-20 w-48 h-48 sm:w-72 sm:h-72 bg-blue-200 rounded-full blur-3xl opacity-30 animate-pulse"></div>
-      <div className="absolute bottom-20 left-10 sm:bottom-40 sm:left-20 w-64 h-64 sm:w-96 sm:h-96 bg-blue-300 rounded-full blur-3xl opacity-20 animate-pulse" style={{ animationDelay: "1.5s" }}></div>
-      
-      {/* Floating shapes */}
-      <motion.div
-        className="absolute top-1/4 right-1/3 w-20 h-20 border-2 border-blue-300 rotate-45 opacity-20"
-        animate={{ rotate: [45, 225, 45], y: [0, -20, 0] }}
-        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-      />
+    <div className="relative py-12 sm:py-16 md:py-20 overflow-hidden" id="about">
 
       <div className="relative max-w-7xl mx-auto px-4">
         <div className="flex lg:flex-row flex-col gap-6 sm:gap-8 justify-center font-poppins">
@@ -70,10 +60,10 @@ export default function About() {
             viewport={{ once: false }}
             transition={{ duration: 0.6 }}
           >
-            <div className="relative bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-2xl hover:shadow-blue-200 transition-shadow duration-500">
+            <div className="relative bg-white dark:bg-gray-800 rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-2xl hover:shadow-blue-200 dark:hover:shadow-blue-900/50 transition-shadow duration-500">
               {/* Decorative corner elements */}
-              <div className="absolute top-0 left-0 w-12 h-12 sm:w-20 sm:h-20 border-t-4 border-l-4 border-blue-500 rounded-tl-2xl sm:rounded-tl-3xl"></div>
-              <div className="absolute bottom-0 right-0 w-12 h-12 sm:w-20 sm:h-20 border-b-4 border-r-4 border-blue-500 rounded-br-2xl sm:rounded-br-3xl"></div>
+              <div className="absolute top-0 left-0 w-12 h-12 sm:w-20 sm:h-20 border-t-4 border-l-4 border-blue-500 dark:border-blue-400 rounded-tl-2xl sm:rounded-tl-3xl"></div>
+              <div className="absolute bottom-0 right-0 w-12 h-12 sm:w-20 sm:h-20 border-b-4 border-r-4 border-blue-500 dark:border-blue-400 rounded-br-2xl sm:rounded-br-3xl"></div>
 
               <motion.div
                 variants={fadeIn("up", 0.2)}
@@ -81,10 +71,10 @@ export default function About() {
                 whileInView={"show"}
                 viewport={{ once: false }}
               >
-                <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold my-3 sm:my-4 bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent relative inline-block">
+                <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold my-3 sm:my-4 bg-gradient-to-r from-blue-600 to-blue-400 dark:from-blue-400 dark:to-blue-300 bg-clip-text text-transparent relative inline-block">
                   About Me
                   <motion.div
-                    className="absolute -bottom-2 left-0 h-1 bg-gradient-to-r from-blue-500 to-transparent"
+                    className="absolute -bottom-2 left-0 h-1 bg-gradient-to-r from-blue-500 dark:from-blue-400 to-transparent"
                     initial={{ width: 0 }}
                     whileInView={{ width: "100%" }}
                     viewport={{ once: false }}
@@ -101,8 +91,8 @@ export default function About() {
               >
                 <div className="relative">
                   {/* Quote decoration */}
-                  <div className="absolute -left-2 sm:-left-4 top-0 text-4xl sm:text-6xl text-blue-200 font-serif">"</div>
-                  <p className="text-gray-700 leading-relaxed text-sm sm:text-base md:text-lg relative z-10 pl-2 sm:pl-4">
+                  <div className="absolute -left-2 sm:-left-4 top-0 text-4xl sm:text-6xl text-blue-200 dark:text-blue-900/50 font-serif">"</div>
+                  <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-sm sm:text-base md:text-lg relative z-10 pl-2 sm:pl-4">
                     Fully committed to the philosophy of lifelong learning, I'm a
                     full-stack developer with a deep passion for JavaScript, React,
                     and building scalable web applications. The blend of creativity,
@@ -130,12 +120,12 @@ export default function About() {
                 ].map((stat) => (
                   <motion.div
                     key={stat.label}
-                    className="text-center p-3 sm:p-4 bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl"
+                    className="text-center p-3 sm:p-4 bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/30 dark:to-blue-800/30 rounded-xl"
                     whileHover={{ scale: 1.05, y: -5 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <div className="text-xl sm:text-2xl md:text-3xl font-bold text-blue-600">{stat.number}</div>
-                    <div className="text-[10px] sm:text-xs md:text-sm text-gray-600">{stat.label}</div>
+                    <div className="text-xl sm:text-2xl md:text-3xl font-bold text-blue-600 dark:text-blue-400">{stat.number}</div>
+                    <div className="text-[10px] sm:text-xs md:text-sm text-gray-600 dark:text-gray-400">{stat.label}</div>
                   </motion.div>
                 ))}
               </motion.div>
@@ -150,7 +140,7 @@ export default function About() {
                 <motion.a
                   href="/Mayur CV.pdf"
                   download
-                  className="inline-flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base bg-gradient-to-r from-blue-500 to-blue-600 rounded-full text-white font-semibold shadow-lg hover:shadow-blue-300 transition-all duration-300 group relative overflow-hidden"
+                  className="inline-flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base bg-gradient-to-r from-blue-500 to-blue-600 dark:from-blue-600 dark:to-blue-700 rounded-full text-white font-semibold shadow-lg hover:shadow-blue-300 dark:hover:shadow-blue-900/50 transition-all duration-300 group relative overflow-hidden"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -220,17 +210,17 @@ export default function About() {
             viewport={{ once: false }}
             transition={{ duration: 0.6 }}
           >
-            <div className="relative bg-gradient-to-br from-blue-50 to-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-2xl hover:shadow-blue-200 transition-shadow duration-500">
+            <div className="relative bg-gradient-to-br from-blue-50 to-white dark:from-gray-800 dark:to-gray-900 rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-2xl hover:shadow-blue-200 dark:hover:shadow-blue-900/50 transition-shadow duration-500">
               <motion.div
                 variants={fadeIn("up", 0.2)}
                 initial="hidden"
                 whileInView={"show"}
                 viewport={{ once: false }}
               >
-                <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold my-3 sm:my-4 bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent relative inline-block">
+                <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold my-3 sm:my-4 text-blue-500 dark:text-blue-400 relative inline-block">
                   Education & Experience
                   <motion.div
-                    className="absolute -bottom-2 left-0 h-1 bg-gradient-to-r from-blue-500 to-transparent"
+                    className="absolute -bottom-2 left-0 h-1 bg-blue-500 dark:bg-blue-400"
                     initial={{ width: 0 }}
                     whileInView={{ width: "100%" }}
                     viewport={{ once: false }}
@@ -242,7 +232,7 @@ export default function About() {
               <div className="relative mt-6 sm:mt-8">
                 {/* Animated Timeline Line */}
                 <motion.div
-                  className="absolute left-[22px] sm:left-[26px] top-0 w-0.5 sm:w-1 bg-gradient-to-b from-blue-500 via-blue-400 to-blue-300"
+                  className="absolute left-[22px] sm:left-[26px] top-0 w-0.5 sm:w-1 bg-gradient-to-b from-blue-500 via-blue-400 to-blue-300 dark:from-blue-400 dark:via-blue-500 dark:to-blue-600"
                   initial={{ height: 0 }}
                   whileInView={{ height: "100%" }}
                   viewport={{ once: false }}
@@ -250,7 +240,7 @@ export default function About() {
                 />
 
                 {/* Glowing effect on timeline */}
-                <div className="absolute left-[22px] sm:left-[26px] top-0 w-0.5 sm:w-1 h-full bg-blue-400 blur-sm opacity-50"></div>
+                <div className="absolute left-[22px] sm:left-[26px] top-0 w-0.5 sm:w-1 h-full bg-blue-400 dark:bg-blue-500 blur-sm opacity-50"></div>
 
                 <motion.div
                   variants={fadeIn("up", 0.3)}
@@ -280,7 +270,7 @@ export default function About() {
                         <motion.img
                           src={item.logo}
                           alt={item.title}
-                          className="w-12 h-12 min-w-[48px] min-h-[48px] sm:w-14 sm:h-14 sm:min-w-[56px] sm:min-h-[56px] rounded-full aspect-square object-cover border-2 sm:border-4 border-blue-500 relative z-10 bg-white"
+                          className="w-12 h-12 min-w-[48px] min-h-[48px] sm:w-14 sm:h-14 sm:min-w-[56px] sm:min-h-[56px] rounded-full aspect-square object-cover border-2 sm:border-4 border-blue-500 dark:border-blue-400 relative z-10 bg-white dark:bg-gray-700"
                           whileHover={{ 
                             scale: 1.15, 
                             rotate: 360,
@@ -291,7 +281,7 @@ export default function About() {
 
                         {/* Pulsing ring */}
                         <motion.div
-                          className="absolute inset-0 rounded-full border-2 border-blue-400"
+                          className="absolute inset-0 rounded-full border-2 border-blue-400 dark:border-blue-500"
                           animate={{
                             scale: [1, 1.3, 1],
                             opacity: [0.5, 0, 0.5],
@@ -306,7 +296,7 @@ export default function About() {
 
                       {/* Content Card */}
                       <motion.div
-                        className="flex-1 bg-white rounded-xl sm:rounded-2xl p-3 sm:p-4 shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden group"
+                        className="flex-1 bg-white dark:bg-gray-800 rounded-xl sm:rounded-2xl p-3 sm:p-4 shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden group"
                         whileHover={{ y: -5 }}
                       >
                         {/* Gradient overlay on hover */}
@@ -321,18 +311,18 @@ export default function About() {
                           </span>
                         </div>
 
-                        <h2 className="text-base sm:text-lg md:text-xl font-bold text-gray-800 mb-1 pr-16 sm:pr-20">
+                        <h2 className="text-base sm:text-lg md:text-xl font-bold text-gray-800 dark:text-white mb-1 pr-16 sm:pr-20">
                           {item.title}
                         </h2>
-                        <h3 className="text-gray-600 font-semibold text-xs sm:text-sm md:text-base mb-1">
+                        <h3 className="text-gray-600 dark:text-gray-300 font-semibold text-xs sm:text-sm md:text-base mb-1">
                           {item.role}
                         </h3>
-                        <h3 className="text-gray-500 text-[10px] sm:text-xs md:text-sm mb-2 flex items-center gap-2">
+                        <h3 className="text-gray-500 dark:text-gray-400 text-[10px] sm:text-xs md:text-sm mb-2 flex items-center gap-2">
                           <span className="inline-block w-2 h-2 bg-blue-400 rounded-full"></span>
                           {item.tech}
                         </h3>
                         {item.period && (
-                          <h4 className="text-blue-600 text-[10px] sm:text-xs md:text-sm font-semibold flex items-center gap-2">
+                          <h4 className="text-blue-600 dark:text-blue-400 text-[10px] sm:text-xs md:text-sm font-semibold flex items-center gap-2">
                             <span>📅</span>
                             {item.period}
                           </h4>
