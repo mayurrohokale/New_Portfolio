@@ -9,13 +9,13 @@ import { IoSend } from "react-icons/io5";
 import { MdSubject } from "react-icons/md";
 
 const Backend_Url = import.meta.env.VITE_BACKEND_URL || "http://localhost:3000";
-const SITE_KEY = import.meta.env.VITE_SECRET_KEY;
+// const SITE_KEY = import.meta.env.VITE_SECRET_KEY;
 
 export default function Contact() {
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [loading, setLoading] = useState(false);
-  const [captchaToken, setCaptchaToken] = useState(null); // Uncomment when using reCAPTCHA
+  // const [captchaToken, setCaptchaToken] = useState(null); // Uncomment when using reCAPTCHA
   const [focusedField, setFocusedField] = useState(null);
 
   const [formData, setFormData] = useState({
@@ -33,9 +33,9 @@ export default function Contact() {
   };
 
   // Uncomment when using reCAPTCHA
-  const handleCaptchaChange = (token) => {
-    setCaptchaToken(token);
-  };
+  // const handleCaptchaChange = (token) => {
+  //   setCaptchaToken(token);
+  // };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -45,16 +45,16 @@ export default function Contact() {
     setLoading(true);
 
     // Uncomment when you want to use reCAPTCHA
-    if (!captchaToken) {
-      setErrorMessage("Please complete the CAPTCHA.");
-      setLoading(false);
-      return;
-    }
+    // if (!captchaToken) {
+    //   setErrorMessage("Please complete the CAPTCHA.");
+    //   setLoading(false);
+    //   return;
+    // }
 
     try {
       const response = await axios.post(`${Backend_Url}/contact`, {
         ...formData,
-        recaptchaToken: captchaToken, // Uncomment when using reCAPTCHA
+        // recaptchaToken: captchaToken, // Uncomment when using reCAPTCHA
       });
       console.log(response);
       setSuccessMessage(
@@ -308,6 +308,7 @@ export default function Contact() {
 
             {/* reCAPTCHA - Commented out for later use */}
             {/* Uncomment below when you want to use reCAPTCHA */}
+            {/*
             <motion.div
               variants={fadeIn("up", 0.2)}
               initial="hidden"
@@ -317,6 +318,7 @@ export default function Contact() {
             >
               <ReCAPTCHA sitekey={SITE_KEY} onChange={handleCaptchaChange} />
             </motion.div>
+            */}
 
             {/* Submit Button */}
             <motion.div
