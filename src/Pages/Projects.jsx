@@ -92,7 +92,7 @@ export default function Projects() {
             <motion.div
               animate={{ rotate: 360 }}
               transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-              className="h-10 w-10 rounded-xl bg-gradient-to-r from-blue-500 to-purple-500 shadow-md flex items-center justify-center"
+              className="h-10 w-10 rounded-xl bg-gradient-to-r from-blue-300 to-blue-500 shadow-md flex items-center justify-center"
             >
               <span className="text-white text-lg leading-none">✨</span>
             </motion.div>

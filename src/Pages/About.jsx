@@ -114,8 +114,8 @@ export default function About() {
                 className="grid grid-cols-3 gap-3 sm:gap-4 my-4 sm:my-6"
               >
                 {[
-                  { number: "2+", label: "Years Exp" },
-                  { number: "20+", label: "Projects" },
+                  { number: "1+", label: "Years Exp" },
+                  { number: "8+", label: "Projects" },
                   { number: "10+", label: "Tech Stack" },
                 ].map((stat) => (
                   <motion.div
