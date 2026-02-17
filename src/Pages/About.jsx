@@ -2,180 +2,367 @@ import SocialButton from "../rusable/social_button";
 import { IoLogoGithub } from "react-icons/io";
 import { TbBrandLinkedinFilled } from "react-icons/tb";
 import { FaSquareXTwitter } from "react-icons/fa6";
+import { HiDownload } from "react-icons/hi";
 // eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
 import { fadeIn } from "../assets/varients";
-export default function About() {
-  return (
-    <div className="" id="about">
-      <div className="">
-        <div className="flex lg:flex-row flex-col  justify-center font-poppins">
-          <div className="lg:w-1/2 w-full p-4 font-medium ">
-            <motion.div
-              variants={fadeIn("up", 0.2)}
-              initial="hidden"
-              whileInView={"show"}
-              viewport={{ once: false }}
-            >
-              <h1 className="text-xl md:text-lg font-bold my-3">About Me</h1>
-            </motion.div>
-            <motion.div
-              variants={fadeIn("up", 0.2)}
-              initial="hidden"
-              whileInView={"show"}
-              viewport={{ once: false }}
-            >
-              <p align="justify">
-                Fully committed to the philosophy of lifelong learning, I’m a
-                full-stack developer with a deep passion for JavaScript, React,
-                and building scalable web applications. The blend of creativity,
-                logic, and ever-evolving technology fuels my excitement for
-                development. I also enjoy designing intuitive user experiences
-                with Figma and exploring Web3 innovations. When I’m not coding,
-                I love watching global cinema, staying active, and diving into
-                new tech trends.
-              </p>
-            </motion.div>
-            <motion.div
-              variants={fadeIn("up", 0.2)}
-              initial="hidden"
-              whileInView={"show"}
-              viewport={{ once: false }}
-            >
-              <button className="my-2 p-2 md:p-3 bg-blue-500 rounded-lg text-white">
-                <a href="/Mayur CV.pdf" download>
-                  Resume/CV
-                </a>
-              </button>
-            </motion.div>
-            <motion.div
-              variants={fadeIn("up", 0.2)}
-              initial="hidden"
-              whileInView={"show"}
-              viewport={{ once: false }}
-            >
-              <div className="flex gap-2 py-2">
-                <SocialButton
-                  src="https://github.com/mayurrohokale"
-                  logo={<IoLogoGithub />}
-                  text="Github"
-                />
-                <SocialButton
-                  src="https://www.linkedin.com/in/mayur-rohokale-397a35210/"
-                  logo={<TbBrandLinkedinFilled />}
-                  text="LinkedIn"
-                />
-                <SocialButton
-                  src="https://www.x.com/mayurrohokale25/"
-                  logo={<FaSquareXTwitter />}
-                  text="Twitter"
-                />
-              </div>
-            </motion.div>
-          </div>
-          <div className="w-full lg:w-1/2 p-4 bg-blue-100">
-            <motion.div
-              variants={fadeIn("up", 0.2)}
-              initial="hidden"
-              whileInView={"show"}
-              viewport={{ once: false }}
-            >
-              <h1 className="text-xl md:text-lg font-bold my-3">
-                Education & Experience
-              </h1>
-            </motion.div>
 
-            <div className="relative">
+export default function About() {
+  const timeline = [
+    {
+      type: "work",
+      logo: "https://tawk.link/66f63ef84cbc4814f7dfab33/var/trigger-images/fb9beafb6fb8c950ce55290ca76b8cd55ef2e33f.jpg",
+      title: "DexyAI",
+      role: "Full Stack Engineer",
+      tech: "Python, NextJS",
+      period: "Apr-2025-Present",
+      color: "from-blue-500 to-cyan-500",
+    },
+    {
+      type: "work",
+      logo: "/freekick.jpg",
+      title: "Freekick.app",
+      role: "Full Stack Intern",
+      tech: "Next.js, Python, Figma, Web3(TON, MetaMask)",
+      period: "Oct - Dec 2024",
+      color: "from-purple-500 to-blue-500",
+    },
+    {
+      type: "education",
+      logo: "/modern.jpg",
+      title: "Master of Computer Application",
+      role: "Modern College, Pune (SPPU)",
+      tech: "2023 - 2025 | CGPA: 8.03",
+      period: "",
+      color: "from-green-500 to-blue-500",
+    },
+    {
+      type: "education",
+      logo: "/mescoe.jpg",
+      title: "Bachelor of Engineering",
+      role: "Mes College of Engineering, Pune (SPPU)",
+      tech: "2019 - 2023 | CGPA: 8.01",
+      period: "",
+      color: "from-orange-500 to-blue-500",
+    },
+  ];
+
+  return (
+    <div className="relative py-12 sm:py-16 md:py-20 overflow-hidden bg-gradient-to-b from-white to-blue-50" id="about">
+      {/* Decorative Background Elements */}
+      <div className="absolute top-10 right-10 sm:top-20 sm:right-20 w-48 h-48 sm:w-72 sm:h-72 bg-blue-200 rounded-full blur-3xl opacity-30 animate-pulse"></div>
+      <div className="absolute bottom-20 left-10 sm:bottom-40 sm:left-20 w-64 h-64 sm:w-96 sm:h-96 bg-blue-300 rounded-full blur-3xl opacity-20 animate-pulse" style={{ animationDelay: "1.5s" }}></div>
+      
+      {/* Floating shapes */}
+      <motion.div
+        className="absolute top-1/4 right-1/3 w-20 h-20 border-2 border-blue-300 rotate-45 opacity-20"
+        animate={{ rotate: [45, 225, 45], y: [0, -20, 0] }}
+        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+      />
+
+      <div className="relative max-w-7xl mx-auto px-4">
+        <div className="flex lg:flex-row flex-col gap-6 sm:gap-8 justify-center font-poppins">
+          {/* Left Section - About Me */}
+          <motion.div
+            className="lg:w-1/2 w-full"
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: false }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="relative bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-2xl hover:shadow-blue-200 transition-shadow duration-500">
+              {/* Decorative corner elements */}
+              <div className="absolute top-0 left-0 w-12 h-12 sm:w-20 sm:h-20 border-t-4 border-l-4 border-blue-500 rounded-tl-2xl sm:rounded-tl-3xl"></div>
+              <div className="absolute bottom-0 right-0 w-12 h-12 sm:w-20 sm:h-20 border-b-4 border-r-4 border-blue-500 rounded-br-2xl sm:rounded-br-3xl"></div>
+
               <motion.div
                 variants={fadeIn("up", 0.2)}
                 initial="hidden"
                 whileInView={"show"}
                 viewport={{ once: false }}
               >
-                {/* Timeline Line */}
-                <div className="absolute left-[26px] top-0 w-1 h-full  bg-blue-500"></div>
-                {/* New Experience - PromptLab AI */}
-                <div className="mb-6 flex items-start gap-4 relative">
-                  {/* Logo */}
-                  <div className="relative">
-                    <img
-                      src="https://tawk.link/66f63ef84cbc4814f7dfab33/var/trigger-images/fb9beafb6fb8c950ce55290ca76b8cd55ef2e33f.jpg" // Make sure you have this image in your public folder
-                      className="w-14 h-14 min-w-[56px] min-h-[56px] rounded-full aspect-square object-cover border-4 border-blue-500"
-                    />
-                  </div>
-                  <div>
-                    <h2 className="text-lg font-semibold">DexyAI</h2>
-                    <h3 className="text-gray-600">Full Stack Engineer</h3>
-                    <h3 className="text-gray-600">
-                     Python, NextJS
-                    </h3>
-                    <h4 className="text-gray-500 text-sm">Apr-2025-Present</h4>
-                  </div>
-                </div>
+                <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold my-3 sm:my-4 bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent relative inline-block">
+                  About Me
+                  <motion.div
+                    className="absolute -bottom-2 left-0 h-1 bg-gradient-to-r from-blue-500 to-transparent"
+                    initial={{ width: 0 }}
+                    whileInView={{ width: "100%" }}
+                    viewport={{ once: false }}
+                    transition={{ duration: 0.8, delay: 0.3 }}
+                  />
+                </h1>
+              </motion.div>
 
-                {/* Experience */}
-                <div className="mb-6 flex items-start gap-4 relative">
-                  {/* Logo */}
-                  <div className="relative">
-                    <img
-                      src="/freekick.jpg"
-                      className="w-14 h-14 min-w-[56px] min-h-[56px] rounded-full aspect-square object-cover border-4 border-blue-500"
-                    />
-                  </div>
-                  <div>
-                    <h2 className="text-lg font-semibold">Freekick.app</h2>
-                    <h3 className="text-gray-600">Full Stack Intern</h3>
-                    <h3 className="text-gray-600">
-                      Next.js, Python, Figma, Web3(TON, MetaMask)
-                    </h3>
-                    <h4 className="text-gray-500 text-sm">Oct - Dec 2024</h4>
-                  </div>
+              <motion.div
+                variants={fadeIn("up", 0.3)}
+                initial="hidden"
+                whileInView={"show"}
+                viewport={{ once: false }}
+              >
+                <div className="relative">
+                  {/* Quote decoration */}
+                  <div className="absolute -left-2 sm:-left-4 top-0 text-4xl sm:text-6xl text-blue-200 font-serif">"</div>
+                  <p className="text-gray-700 leading-relaxed text-sm sm:text-base md:text-lg relative z-10 pl-2 sm:pl-4">
+                    Fully committed to the philosophy of lifelong learning, I'm a
+                    full-stack developer with a deep passion for JavaScript, React,
+                    and building scalable web applications. The blend of creativity,
+                    logic, and ever-evolving technology fuels my excitement for
+                    development. I also enjoy designing intuitive user experiences
+                    with Figma and exploring Web3 innovations. When I'm not coding,
+                    I love watching global cinema, staying active, and diving into
+                    new tech trends.
+                  </p>
                 </div>
+              </motion.div>
 
-                {/* MCA */}
-                <div className="mb-6 flex items-start gap-4 relative">
-                  <div className="relative">
-                    <img
-                      src="/modern.jpg"
-                      className="w-14 h-14 min-w-[56px] min-h-[56px] rounded-full aspect-square object-cover border-4 border-blue-500"
-                    />
-                  </div>
-                  <div>
-                    <h2 className="text-lg font-semibold">
-                      Master of Computer Application
-                    </h2>
-                    <h3 className="text-gray-600">
-                      Modern College, Pune (SPPU)
-                    </h3>
-                    <h4 className="text-gray-500 text-sm">
-                      2023 - 2025 | CGPA: 8.03
-                    </h4>
-                  </div>
-                </div>
+              {/* Stats Section */}
+              <motion.div
+                variants={fadeIn("up", 0.4)}
+                initial="hidden"
+                whileInView={"show"}
+                viewport={{ once: false }}
+                className="grid grid-cols-3 gap-3 sm:gap-4 my-4 sm:my-6"
+              >
+                {[
+                  { number: "2+", label: "Years Exp" },
+                  { number: "20+", label: "Projects" },
+                  { number: "10+", label: "Tech Stack" },
+                ].map((stat) => (
+                  <motion.div
+                    key={stat.label}
+                    className="text-center p-3 sm:p-4 bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl"
+                    whileHover={{ scale: 1.05, y: -5 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <div className="text-xl sm:text-2xl md:text-3xl font-bold text-blue-600">{stat.number}</div>
+                    <div className="text-[10px] sm:text-xs md:text-sm text-gray-600">{stat.label}</div>
+                  </motion.div>
+                ))}
+              </motion.div>
 
-                {/* BE */}
-                <div className="flex items-start gap-4 relative">
-                  <div className="relative">
-                    <img
-                      src="/mescoe.jpg"
-                      className="w-14 h-14 min-w-[56px] min-h-[56px] rounded-full aspect-square object-cover border-4 border-blue-500"
+              {/* Download Resume Button */}
+              <motion.div
+                variants={fadeIn("up", 0.5)}
+                initial="hidden"
+                whileInView={"show"}
+                viewport={{ once: false }}
+              >
+                <motion.a
+                  href="/Mayur CV.pdf"
+                  download
+                  className="inline-flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base bg-gradient-to-r from-blue-500 to-blue-600 rounded-full text-white font-semibold shadow-lg hover:shadow-blue-300 transition-all duration-300 group relative overflow-hidden"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  {/* Animated background */}
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-700"
+                    initial={{ x: "-100%" }}
+                    whileHover={{ x: 0 }}
+                    transition={{ duration: 0.3 }}
+                  />
+                  
+                  <span className="relative z-10 flex items-center gap-2">
+                    <HiDownload className="text-lg sm:text-xl group-hover:animate-bounce" />
+                    <span className="hidden sm:inline">Download Resume</span>
+                    <span className="sm:hidden">Resume</span>
+                  </span>
+
+                  {/* Shine effect */}
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-0 group-hover:opacity-30"
+                    initial={{ x: "-100%" }}
+                    whileHover={{ x: "100%" }}
+                    transition={{ duration: 0.6 }}
+                  />
+                </motion.a>
+              </motion.div>
+
+              {/* Social Buttons */}
+              <motion.div
+                variants={fadeIn("up", 0.6)}
+                initial="hidden"
+                whileInView={"show"}
+                viewport={{ once: false }}
+              >
+                <div className="flex gap-2 sm:gap-3 py-2 sm:py-4 flex-wrap">
+                  <motion.div whileHover={{ scale: 1.1, rotate: 5 }} whileTap={{ scale: 0.9 }}>
+                    <SocialButton
+                      src="https://github.com/mayurrohokale"
+                      logo={<IoLogoGithub />}
+                      text="Github"
                     />
-                  </div>
-                  <div>
-                    <h2 className="text-lg font-semibold">
-                      Bachelor of Engineering
-                    </h2>
-                    <h3 className="text-gray-600">
-                      Mes College of Engineering, Pune (SPPU)
-                    </h3>
-                    <h4 className="text-gray-500 text-sm">
-                      2019 - 2023 | CGPA: 8.01
-                    </h4>
-                  </div>
+                  </motion.div>
+                  <motion.div whileHover={{ scale: 1.1, rotate: -5 }} whileTap={{ scale: 0.9 }}>
+                    <SocialButton
+                      src="https://www.linkedin.com/in/mayur-rohokale-397a35210/"
+                      logo={<TbBrandLinkedinFilled />}
+                      text="LinkedIn"
+                    />
+                  </motion.div>
+                  <motion.div whileHover={{ scale: 1.1, rotate: 5 }} whileTap={{ scale: 0.9 }}>
+                    <SocialButton
+                      src="https://www.x.com/mayurrohokale25/"
+                      logo={<FaSquareXTwitter />}
+                      text="Twitter"
+                    />
+                  </motion.div>
                 </div>
               </motion.div>
             </div>
-          </div>
+          </motion.div>
+
+          {/* Right Section - Timeline */}
+          <motion.div
+            className="w-full lg:w-1/2"
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: false }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="relative bg-gradient-to-br from-blue-50 to-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-2xl hover:shadow-blue-200 transition-shadow duration-500">
+              <motion.div
+                variants={fadeIn("up", 0.2)}
+                initial="hidden"
+                whileInView={"show"}
+                viewport={{ once: false }}
+              >
+                <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold my-3 sm:my-4 bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent relative inline-block">
+                  Education & Experience
+                  <motion.div
+                    className="absolute -bottom-2 left-0 h-1 bg-gradient-to-r from-blue-500 to-transparent"
+                    initial={{ width: 0 }}
+                    whileInView={{ width: "100%" }}
+                    viewport={{ once: false }}
+                    transition={{ duration: 0.8, delay: 0.3 }}
+                  />
+                </h1>
+              </motion.div>
+
+              <div className="relative mt-6 sm:mt-8">
+                {/* Animated Timeline Line */}
+                <motion.div
+                  className="absolute left-[22px] sm:left-[26px] top-0 w-0.5 sm:w-1 bg-gradient-to-b from-blue-500 via-blue-400 to-blue-300"
+                  initial={{ height: 0 }}
+                  whileInView={{ height: "100%" }}
+                  viewport={{ once: false }}
+                  transition={{ duration: 1.5, delay: 0.5 }}
+                />
+
+                {/* Glowing effect on timeline */}
+                <div className="absolute left-[22px] sm:left-[26px] top-0 w-0.5 sm:w-1 h-full bg-blue-400 blur-sm opacity-50"></div>
+
+                <motion.div
+                  variants={fadeIn("up", 0.3)}
+                  initial="hidden"
+                  whileInView={"show"}
+                  viewport={{ once: false }}
+                >
+                  {timeline.map((item, index) => (
+                    <motion.div
+                      key={index}
+                      className="mb-6 sm:mb-8 flex items-start gap-3 sm:gap-4 relative group"
+                      initial={{ opacity: 0, x: -30 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: false }}
+                      transition={{ delay: index * 0.2 }}
+                      whileHover={{ x: 10 }}
+                    >
+                      {/* Logo with 3D effect */}
+                      <div className="relative">
+                        {/* Glow effect */}
+                        <motion.div
+                          className={`absolute inset-0 rounded-full bg-gradient-to-r ${item.color} opacity-0 group-hover:opacity-50 blur-xl transition-opacity duration-300`}
+                          animate={{ scale: [1, 1.2, 1] }}
+                          transition={{ duration: 2, repeat: Infinity }}
+                        />
+                        
+                        <motion.img
+                          src={item.logo}
+                          alt={item.title}
+                          className="w-12 h-12 min-w-[48px] min-h-[48px] sm:w-14 sm:h-14 sm:min-w-[56px] sm:min-h-[56px] rounded-full aspect-square object-cover border-2 sm:border-4 border-blue-500 relative z-10 bg-white"
+                          whileHover={{ 
+                            scale: 1.15, 
+                            rotate: 360,
+                            borderColor: "#60A5FA"
+                          }}
+                          transition={{ duration: 0.6 }}
+                        />
+
+                        {/* Pulsing ring */}
+                        <motion.div
+                          className="absolute inset-0 rounded-full border-2 border-blue-400"
+                          animate={{
+                            scale: [1, 1.3, 1],
+                            opacity: [0.5, 0, 0.5],
+                          }}
+                          transition={{
+                            duration: 2,
+                            repeat: Infinity,
+                            delay: index * 0.3,
+                          }}
+                        />
+                      </div>
+
+                      {/* Content Card */}
+                      <motion.div
+                        className="flex-1 bg-white rounded-xl sm:rounded-2xl p-3 sm:p-4 shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden group"
+                        whileHover={{ y: -5 }}
+                      >
+                        {/* Gradient overlay on hover */}
+                        <motion.div
+                          className={`absolute inset-0 bg-gradient-to-r ${item.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300`}
+                        />
+
+                        {/* Type badge */}
+                        <div className="absolute top-2 right-2">
+                          <span className={`text-[10px] sm:text-xs px-2 sm:px-3 py-0.5 sm:py-1 rounded-full bg-gradient-to-r ${item.color} text-white font-semibold shadow-md`}>
+                            {item.type === "work" ? "💼 Work" : "🎓 Education"}
+                          </span>
+                        </div>
+
+                        <h2 className="text-base sm:text-lg md:text-xl font-bold text-gray-800 mb-1 pr-16 sm:pr-20">
+                          {item.title}
+                        </h2>
+                        <h3 className="text-gray-600 font-semibold text-xs sm:text-sm md:text-base mb-1">
+                          {item.role}
+                        </h3>
+                        <h3 className="text-gray-500 text-[10px] sm:text-xs md:text-sm mb-2 flex items-center gap-2">
+                          <span className="inline-block w-2 h-2 bg-blue-400 rounded-full"></span>
+                          {item.tech}
+                        </h3>
+                        {item.period && (
+                          <h4 className="text-blue-600 text-[10px] sm:text-xs md:text-sm font-semibold flex items-center gap-2">
+                            <span>📅</span>
+                            {item.period}
+                          </h4>
+                        )}
+
+                        {/* Decorative corner */}
+                        <div className="absolute bottom-0 right-0 w-8 h-8 sm:w-12 sm:h-12 bg-gradient-to-tl from-blue-100 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-tl-2xl sm:rounded-tl-3xl"></div>
+                      </motion.div>
+                    </motion.div>
+                  ))}
+                </motion.div>
+              </div>
+
+              {/* Bottom decoration */}
+              <motion.div
+                className="mt-6 sm:mt-8 text-center"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: false }}
+              >
+                <motion.div
+                  className="inline-block text-blue-400"
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                >
+                  ⚡
+                </motion.div>
+              </motion.div>
+            </div>
+          </motion.div>
         </div>
       </div>
     </div>
