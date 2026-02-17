@@ -9,29 +9,29 @@ export default function Building() {
   const views = {
     customer: {
       label: "Customer App",
-      title: "Order in seconds",
+      title: "Place your order",
       points: [
-        "Browse seasonal veggies & fruits",
-        "Fast checkout + address",
-        "Live order status + delivery ETA",
+        "Order from the app (simple & fast)",
+        "Orders go directly to the farmer",
+        "Next-day delivery after batching",
       ],
     },
     ops: {
       label: "Farm Ops",
-      title: "Pack & dispatch",
+      title: "Batch → pickup → warehouse",
       points: [
-        "Incoming orders queue",
-        "Packing updates (picked / packed)",
-        "Dispatch & delivery assignment",
+        "Farmer receives orders during a 12h window",
+        "End-of-day pickup to the warehouse (batch)",
+        "Warehouse sorts by zone for delivery runs",
       ],
     },
     delivery: {
       label: "Delivery",
-      title: "6-hour promise",
+      title: "Zone-wise next-day delivery",
       points: [
-        "Route-ready delivery batches",
-        "ETA-first status timeline",
-        "Proof of delivery + notes",
+        "All deliveries dispatched from the warehouse",
+        "Zone-wise distribution to multiple homes",
+        "Target: complete deliveries in ~10 hours",
       ],
     },
   };
@@ -60,12 +60,9 @@ export default function Building() {
               />
             </h1>
             <p className="mt-4 text-gray-700/90 dark:text-gray-200/80 max-w-xl mx-auto lg:mx-0">
-              I’m building an app that delivers fresh organic veggies and fruits within <span className="font-semibold">6 hours</span>
-              <span className="hidden sm:inline"> — </span>
-              <span className="sm:hidden">.</span>
-              <span className="inline"> From </span>
-              <span className="font-semibold">Rohokale Farm</span>
-              <span className="inline"> to the customer.</span>
+              Order placed from the app → the farmer receives it. Orders are collected in a <span className="font-semibold">12-hour</span> window,
+              then end-of-day pickup moves everything to the warehouse. Next day, deliveries go <span className="font-semibold">zone-wise</span> to homes
+              within ~<span className="font-semibold">10 hours</span>.
             </p>
 
             <div className="mt-6 flex flex-wrap items-center justify-center lg:justify-start gap-2">
@@ -73,7 +70,7 @@ export default function Building() {
                 In progress
               </span>
               <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-purple-600/10 dark:bg-purple-400/10 text-purple-700/80 dark:text-purple-300/80">
-                Delivery tracking (WIP)
+                Batching + routing (WIP)
               </span>
             </div>
 
@@ -103,11 +100,11 @@ export default function Building() {
               </div>
 
               <div className="p-5 sm:p-6">
-                <p className="text-xs font-medium text-gray-700/70 dark:text-gray-200/60">Farm App Snapshot</p>
+                <p className="text-xs font-medium text-gray-700/70 dark:text-gray-200/60">Fulfillment Model Snapshot</p>
                 <div className="mt-1 flex items-start justify-between gap-4">
                   <h2 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white">{selected.title}</h2>
                   <span className="shrink-0 inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-600/10 dark:bg-blue-400/10 text-blue-700/80 dark:text-blue-300/80">
-                    6 hours
+                    12h + 10h
                   </span>
                 </div>
 
@@ -454,16 +451,16 @@ export default function Building() {
               <div className="p-5 sm:p-6 border-t border-white/20 dark:border-white/10">
                 <div className="grid grid-cols-3 gap-3">
                   <div className="rounded-2xl bg-white/55 dark:bg-gray-950/20 border border-white/25 dark:border-white/10 p-4 shadow-lg">
-                    <p className="text-[11px] text-gray-700/70 dark:text-gray-200/60">Farm Pickup</p>
-                    <p className="mt-1 text-sm font-semibold text-gray-900 dark:text-white">Inbound</p>
+                    <p className="text-[11px] text-gray-700/70 dark:text-gray-200/60">Order Window</p>
+                    <p className="mt-1 text-sm font-semibold text-gray-900 dark:text-white">12h</p>
                   </div>
                   <div className="rounded-2xl bg-white/55 dark:bg-gray-950/20 border border-white/25 dark:border-white/10 p-4 shadow-lg">
-                    <p className="text-[11px] text-gray-700/70 dark:text-gray-200/60">Zone Sort</p>
-                    <p className="mt-1 text-sm font-semibold text-gray-900 dark:text-white">Active</p>
+                    <p className="text-[11px] text-gray-700/70 dark:text-gray-200/60">EOD Pickup</p>
+                    <p className="mt-1 text-sm font-semibold text-gray-900 dark:text-white">Warehouse</p>
                   </div>
                   <div className="rounded-2xl bg-white/55 dark:bg-gray-950/20 border border-white/25 dark:border-white/10 p-4 shadow-lg">
-                    <p className="text-[11px] text-gray-700/70 dark:text-gray-200/60">Out for Delivery</p>
-                    <p className="mt-1 text-sm font-semibold text-gray-900 dark:text-white">Zone-wise</p>
+                    <p className="text-[11px] text-gray-700/70 dark:text-gray-200/60">Next-day Delivery</p>
+                    <p className="mt-1 text-sm font-semibold text-gray-900 dark:text-white">~10h</p>
                   </div>
                 </div>
               </div>
