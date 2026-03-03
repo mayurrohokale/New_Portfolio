@@ -45,7 +45,7 @@ export default function Building() {
           variants={fadeIn("up", 0.2)}
           initial="hidden"
           whileInView={"show"}
-          viewport={{ once: false }}
+          viewport={{ once: true }}
           className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 items-start"
         >
           <div className="text-center lg:text-left">
@@ -55,7 +55,7 @@ export default function Building() {
                 className="absolute -bottom-3 left-0 h-1 bg-blue-500 dark:bg-blue-400"
                 initial={{ width: 0 }}
                 whileInView={{ width: "100%" }}
-                viewport={{ once: false }}
+                viewport={{ once: true }}
                 transition={{ duration: 0.9, delay: 0.15 }}
               />
             </h1>
@@ -127,7 +127,7 @@ export default function Building() {
             variants={fadeIn("up", 0.25)}
             initial="hidden"
             whileInView={"show"}
-            viewport={{ once: false }}
+            viewport={{ once: true }}
             className="relative"
           >
             <div className="rounded-3xl bg-white/60 dark:bg-gray-900/30 border border-white/20 dark:border-white/10 backdrop-blur-xl shadow-2xl overflow-hidden">
@@ -473,7 +473,7 @@ export default function Building() {
           variants={fadeIn("up", 0.3)}
           initial="hidden"
           whileInView={"show"}
-          viewport={{ once: false }}
+          viewport={{ once: true }}
           className="mt-10"
         >
           <h2 className="text-2xl sm:text-3xl font-bold text-blue-500 dark:text-blue-400 inline-block relative">
@@ -482,7 +482,7 @@ export default function Building() {
               className="absolute -bottom-3 left-0 h-1 bg-blue-500 dark:bg-blue-400"
               initial={{ width: 0 }}
               whileInView={{ width: "100%" }}
-              viewport={{ once: false }}
+              viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.1 }}
             />
           </h2>

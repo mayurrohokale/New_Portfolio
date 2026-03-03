@@ -17,40 +17,22 @@ const Header = () => {
     <div className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-5xl">
       <nav className="h-14 rounded-3xl shadow-2xl bg-white/75 dark:bg-gray-900/60 backdrop-blur-xl border border-white/20 dark:border-white/10 text-gray-900 dark:text-white transition-colors duration-300">
         {/* Mobile: icon row */}
-        <div className="h-full px-4 flex items-center justify-between lg:hidden">
-          <div className="flex items-center gap-3 text-[22px]">
+        <div className="h-full px-4 flex items-center lg:hidden">
+          <div className="flex items-center justify-between w-full text-[20px]">
             <Link
               to="/"
               aria-label="Home"
-              className="p-2 rounded-2xl hover:bg-gray-900/5 dark:hover:bg-white/10 transition-colors"
+              className="p-2 rounded-2xl hover:bg-gray-900/5 dark:hover:bg-white/10 transition-colors flex items-center justify-center"
             >
               <FiHome />
             </Link>
-
-            {/* <a
-              href="#projects"
-              aria-label="Projects"
-              className="p-2 rounded-2xl hover:bg-gray-900/5 dark:hover:bg-white/10 transition-colors"
-            >
-              <MdWorkOutline />
-            </a> */}
-
-            {/* <a
-              href="https://github.com/mayurrohokale"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="GitHub"
-              className="p-2 rounded-2xl hover:bg-gray-900/5 dark:hover:bg-white/10 transition-colors"
-            >
-              <FaGithub />
-            </a> */}
 
             <a
               href="https://www.linkedin.com/in/mayur-rohokale-397a35210/"
               target="_blank"
               rel="noreferrer"
               aria-label="LinkedIn"
-              className="p-2 rounded-2xl hover:bg-gray-900/5 dark:hover:bg-white/10 transition-colors"
+              className="p-2 rounded-2xl hover:bg-gray-900/5 dark:hover:bg-white/10 transition-colors flex items-center justify-center"
             >
               <TbBrandLinkedinFilled />
             </a>
@@ -58,7 +40,7 @@ const Header = () => {
             <a
               href="#contact"
               aria-label="Contact"
-              className="p-2 rounded-2xl hover:bg-gray-900/5 dark:hover:bg-white/10 transition-colors"
+              className="p-2 rounded-2xl hover:bg-gray-900/5 dark:hover:bg-white/10 transition-colors flex items-center justify-center"
             >
               <HiOutlinePhone />
             </a>
@@ -66,14 +48,15 @@ const Header = () => {
             <Link
               to="/building"
               aria-label="Building"
-              className="p-2 rounded-2xl hover:bg-gray-900/5 dark:hover:bg-white/10 transition-colors"
+              className="p-2 rounded-2xl hover:bg-gray-900/5 dark:hover:bg-white/10 transition-colors flex items-center justify-center"
             >
               <MdOutlineBuildCircle />
             </Link>
+
             <motion.button
               onClick={toggleTheme}
               aria-label="Toggle theme"
-              className="p-2 rounded-2xl hover:bg-gray-900/5 dark:hover:bg-white/10 transition-colors"
+              className="p-2 rounded-2xl hover:bg-gray-900/5 dark:hover:bg-white/10 transition-colors flex items-center justify-center"
               whileHover={{ rotate: 180 }}
               transition={{ duration: 0.3 }}
             >

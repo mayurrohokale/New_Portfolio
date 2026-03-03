@@ -71,7 +71,7 @@ export default function Projects() {
           variants={fadeIn("up", 0.2)}
           initial="hidden"
           whileInView={"show"}
-          viewport={{ once: false }}
+          viewport={{ once: true }}
           className="text-center mb-10 sm:mb-12 md:mb-16 relative"
         >
           <motion.h1
@@ -82,20 +82,16 @@ export default function Projects() {
               className="absolute -bottom-3 left-0 h-1 bg-blue-500 dark:bg-blue-400"
               initial={{ width: 0 }}
               whileInView={{ width: "100%" }}
-              viewport={{ once: false }}
+              viewport={{ once: true }}
               transition={{ duration: 1, delay: 0.3 }}
             />
           </motion.h1>
 
           {/* Decorative elements around title */}
           <div className="absolute left-0 right-0 -top-12 flex justify-center">
-            <motion.div
-              animate={{ rotate: 360 }}
-              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-              className="h-10 w-10 rounded-xl bg-gradient-to-r from-blue-300 to-blue-500 shadow-md flex items-center justify-center"
-            >
+            <div className="h-10 w-10 rounded-xl bg-gradient-to-r from-blue-300 to-blue-500 shadow-md flex items-center justify-center animate-spin" style={{ animationDuration: "20s" }}>
               <span className="text-white text-lg leading-none">✨</span>
-            </motion.div>
+            </div>
           </div>
 
           <motion.p
@@ -103,7 +99,7 @@ export default function Projects() {
             variants={fadeIn("up", 0.3)}
             initial="hidden"
             whileInView={"show"}
-            viewport={{ once: false }}
+            viewport={{ once: true }}
           >
             Explore my latest work and side projects
           </motion.p>
@@ -117,7 +113,7 @@ export default function Projects() {
               variants={fadeIn("up", 0.2 + index * 0.1)}
               initial="hidden"
               whileInView={"show"}
-              viewport={{ once: false }}
+              viewport={{ once: true }}
               className="w-full flex justify-center"
             >
               <ProjectCard {...project} index={index} />
@@ -130,7 +126,7 @@ export default function Projects() {
           variants={fadeIn("up", 0.2)}
           initial="hidden"
           whileInView={"show"}
-          viewport={{ once: false }}
+          viewport={{ once: true }}
           className="text-center mt-12 sm:mt-16"
         >
           <motion.a
@@ -152,12 +148,7 @@ export default function Projects() {
             <span className="relative z-10 flex items-center gap-2">
               <IoLogoGithub className="text-2xl group-hover:rotate-12 transition-transform" />
               View More on GitHub
-              <motion.span
-                animate={{ x: [0, 5, 0] }}
-                transition={{ duration: 1.5, repeat: Infinity }}
-              >
-                →
-              </motion.span>
+              <span>→</span>
             </span>
 
             {/* Shine effect */}

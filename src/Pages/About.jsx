@@ -69,27 +69,27 @@ export default function About() {
             className="lg:w-1/2 w-full"
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: false }}
+            viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
             <div className="relative bg-white dark:bg-gray-800 rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-2xl hover:shadow-blue-200 dark:hover:shadow-blue-900/50 transition-shadow duration-500 h-full">
               <div className="absolute top-0 left-0 w-12 h-12 sm:w-20 sm:h-20 border-t-4 border-l-4 border-blue-500 dark:border-blue-400 rounded-tl-2xl sm:rounded-tl-3xl" />
               <div className="absolute bottom-0 right-0 w-12 h-12 sm:w-20 sm:h-20 border-b-4 border-r-4 border-blue-500 dark:border-blue-400 rounded-br-2xl sm:rounded-br-3xl" />
 
-              <motion.div variants={fadeIn("up", 0.2)} initial="hidden" whileInView="show" viewport={{ once: false }}>
+              <motion.div variants={fadeIn("up", 0.2)} initial="hidden" whileInView="show" viewport={{ once: true }}>
                 <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold my-3 sm:my-4 bg-gradient-to-r from-blue-600 to-blue-400 dark:from-blue-400 dark:to-blue-300 bg-clip-text text-transparent relative inline-block">
                   About Me
                   <motion.div
                     className="absolute -bottom-2 left-0 h-1 bg-gradient-to-r from-blue-500 dark:from-blue-400 to-transparent"
                     initial={{ width: 0 }}
                     whileInView={{ width: "100%" }}
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                     transition={{ duration: 0.8, delay: 0.3 }}
                   />
                 </h1>
               </motion.div>
 
-              <motion.div variants={fadeIn("up", 0.3)} initial="hidden" whileInView="show" viewport={{ once: false }}>
+              <motion.div variants={fadeIn("up", 0.3)} initial="hidden" whileInView="show" viewport={{ once: true }}>
                 <div className="relative">
                   <div className="absolute -left-2 sm:-left-4 top-0 text-4xl sm:text-6xl text-blue-200 dark:text-blue-900/50 font-serif">"</div>
                   <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-sm sm:text-base md:text-lg relative z-10 pl-2 sm:pl-4">
@@ -110,7 +110,7 @@ export default function About() {
                 variants={fadeIn("up", 0.4)}
                 initial="hidden"
                 whileInView="show"
-                viewport={{ once: false }}
+                viewport={{ once: true }}
                 className="grid grid-cols-3 gap-3 sm:gap-4 my-4 sm:my-6"
               >
                 {[
@@ -131,7 +131,7 @@ export default function About() {
               </motion.div>
 
               {/* Download + Social */}
-              <motion.div variants={fadeIn("up", 0.5)} initial="hidden" whileInView="show" viewport={{ once: false }}>
+              <motion.div variants={fadeIn("up", 0.5)} initial="hidden" whileInView="show" viewport={{ once: true }}>
                 <motion.a
                   href="/Mayur CV.pdf"
                   download
@@ -149,7 +149,7 @@ export default function About() {
                 </motion.a>
               </motion.div>
 
-              <motion.div variants={fadeIn("up", 0.6)} initial="hidden" whileInView="show" viewport={{ once: false }}>
+              <motion.div variants={fadeIn("up", 0.6)} initial="hidden" whileInView="show" viewport={{ once: true }}>
                 <div className="flex gap-2 sm:gap-3 py-2 sm:py-4 flex-wrap">
                   <motion.div whileHover={{ scale: 1.1, rotate: 5 }} whileTap={{ scale: 0.9 }}>
                     <SocialButton src="https://github.com/mayurrohokale" logo={<IoLogoGithub />} text="Github" />
@@ -170,19 +170,19 @@ export default function About() {
             className="lg:w-1/2 w-full"
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: false }}
+            viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
             <div className="relative bg-gradient-to-br from-blue-50 to-white dark:from-gray-800 dark:to-gray-900 rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-2xl hover:shadow-blue-200 dark:hover:shadow-blue-900/50 transition-shadow duration-500 h-full">
 
-              <motion.div variants={fadeIn("up", 0.2)} initial="hidden" whileInView="show" viewport={{ once: false }}>
+              <motion.div variants={fadeIn("up", 0.2)} initial="hidden" whileInView="show" viewport={{ once: true }}>
                 <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 text-blue-500 dark:text-blue-400 relative inline-block">
                   Experience
                   <motion.div
                     className="absolute -bottom-2 left-0 h-1 bg-blue-500 dark:bg-blue-400"
                     initial={{ width: 0 }}
                     whileInView={{ width: "100%" }}
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                     transition={{ duration: 0.8, delay: 0.3 }}
                   />
                 </h1>
@@ -196,7 +196,7 @@ export default function About() {
                     className="w-full bg-gradient-to-b from-green-400 via-blue-500 to-purple-500"
                     initial={{ height: 0 }}
                     whileInView={{ height: "100%" }}
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                     transition={{ duration: 1.2, ease: "easeInOut" }}
                     style={{ originY: 0 }}
                   />
@@ -208,7 +208,7 @@ export default function About() {
                     className="relative group"
                     initial={{ opacity: 0, x: 40 }}
                     whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                     transition={{ delay: index * 0.2, duration: 0.5 }}
                     whileHover={{ scale: 1.02 }}
                   >
@@ -219,10 +219,8 @@ export default function About() {
                       <div className="flex items-center gap-3 sm:gap-4 mb-3">
                         <div className="relative flex-shrink-0 z-10">
                           {/* Animated dot on the timeline */}
-                          <motion.div
-                            className={`absolute -left-[18px] sm:-left-[22px] top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-gradient-to-r ${item.color} border-2 border-white dark:border-gray-800 shadow-md z-20`}
-                            animate={{ scale: [1, 1.4, 1] }}
-                            transition={{ duration: 1.5, repeat: Infinity, delay: index * 0.4 }}
+                          <div
+                            className={`absolute -left-[18px] sm:-left-[22px] top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-gradient-to-r ${item.color} border-2 border-white dark:border-gray-800 shadow-md z-20 animate-pulse`}
                           />
                           <motion.div
                             className={`absolute inset-0 rounded-full bg-gradient-to-r ${item.color} opacity-0 group-hover:opacity-40 blur-md transition-opacity duration-300`}
@@ -234,10 +232,8 @@ export default function About() {
                             whileHover={{ rotate: 360 }}
                             transition={{ duration: 0.6 }}
                           />
-                          <motion.div
-                            className="absolute inset-0 rounded-full border-2 border-blue-400"
-                            animate={{ scale: [1, 1.3, 1], opacity: [0.5, 0, 0.5] }}
-                            transition={{ duration: 2, repeat: Infinity, delay: index * 0.4 }}
+                          <div
+                            className="absolute inset-0 rounded-full border-2 border-blue-400 animate-ping opacity-50"
                           />
                         </div>
 
@@ -271,7 +267,7 @@ export default function About() {
                         className={`absolute left-0 top-0 w-1 h-full rounded-l-2xl bg-gradient-to-b ${item.color}`}
                         initial={{ scaleY: 0 }}
                         whileInView={{ scaleY: 1 }}
-                        viewport={{ once: false }}
+                        viewport={{ once: true }}
                         transition={{ duration: 0.5, delay: 0.3 + index * 0.15 }}
                         style={{ transformOrigin: "top" }}
                       />
@@ -288,7 +284,7 @@ export default function About() {
           className="font-poppins"
           initial={{ opacity: 0, y: 60 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false }}
+          viewport={{ once: true }}
           transition={{ duration: 0.7 }}
         >
           <div className="relative bg-gradient-to-br from-white to-blue-50 dark:from-gray-800 dark:to-gray-900 rounded-2xl sm:rounded-3xl p-6 sm:p-10 shadow-2xl hover:shadow-blue-200 dark:hover:shadow-blue-900/50 transition-shadow duration-500">
@@ -297,14 +293,14 @@ export default function About() {
             <div className="absolute top-0 left-0 w-12 h-12 sm:w-20 sm:h-20 border-t-4 border-l-4 border-blue-400 dark:border-blue-500 rounded-tl-2xl sm:rounded-tl-3xl" />
             <div className="absolute bottom-0 right-0 w-12 h-12 sm:w-20 sm:h-20 border-b-4 border-r-4 border-blue-400 dark:border-blue-500 rounded-br-2xl sm:rounded-br-3xl" />
 
-            <motion.div variants={fadeIn("up", 0.2)} initial="hidden" whileInView="show" viewport={{ once: false }} className="text-center mb-8 sm:mb-12">
+            <motion.div variants={fadeIn("up", 0.2)} initial="hidden" whileInView="show" viewport={{ once: true }} className="text-center mb-8 sm:mb-12">
               <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-500 dark:text-blue-400 relative inline-block">
                 Education
                 <motion.div
                   className="absolute -bottom-2 left-0 h-1 bg-blue-500 dark:bg-blue-400"
                   initial={{ width: 0 }}
                   whileInView={{ width: "100%" }}
-                  viewport={{ once: false }}
+                  viewport={{ once: true }}
                   transition={{ duration: 0.8, delay: 0.3 }}
                 />
               </h1>
@@ -326,11 +322,10 @@ export default function About() {
                   {index > 0 && (
                     <div className="flex sm:hidden flex-col items-center gap-1 py-3">
                       {[0, 1, 2].map((i) => (
-                        <motion.div
+                        <div
                           key={i}
-                          className="w-1.5 h-1.5 rounded-full bg-blue-400 dark:bg-blue-500"
-                          animate={{ opacity: [0.3, 1, 0.3], scale: [0.8, 1.2, 0.8] }}
-                          transition={{ duration: 1.2, repeat: Infinity, delay: i * 0.2 }}
+                          className="w-1.5 h-1.5 rounded-full bg-blue-400 dark:bg-blue-500 animate-bounce"
+                          style={{ animationDelay: `${i * 0.15}s` }}
                         />
                       ))}
                     </div>
@@ -341,7 +336,7 @@ export default function About() {
                     className="relative group w-full z-10"
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                     transition={{ delay: index * 0.25, duration: 0.6 }}
                     whileHover={{ y: -8 }}
                   >
@@ -371,10 +366,8 @@ export default function About() {
                           whileHover={{ scale: 1.1, rotate: 360 }}
                           transition={{ duration: 0.7 }}
                         />
-                        <motion.div
-                          className="absolute inset-0 rounded-full border-2 border-blue-400 dark:border-blue-500"
-                          animate={{ scale: [1, 1.4, 1], opacity: [0.6, 0, 0.6] }}
-                          transition={{ duration: 2.5, repeat: Infinity, delay: index * 0.5 }}
+                        <div
+                          className="absolute inset-0 rounded-full border-2 border-blue-400 dark:border-blue-500 animate-ping opacity-60"
                         />
                       </div>
 
@@ -409,7 +402,7 @@ export default function About() {
                         className={`absolute bottom-0 left-0 h-1 rounded-b-2xl bg-gradient-to-r ${item.color}`}
                         initial={{ width: 0 }}
                         whileInView={{ width: "100%" }}
-                        viewport={{ once: false }}
+                        viewport={{ once: true }}
                         transition={{ duration: 0.8, delay: 0.4 + index * 0.2 }}
                       />
                     </div>

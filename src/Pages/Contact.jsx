@@ -92,7 +92,7 @@ export default function Contact() {
           variants={fadeIn("up", 0.2)}
           initial="hidden"
           whileInView={"show"}
-          viewport={{ once: false }}
+          viewport={{ once: true }}
         >
           <motion.h1
             className="text-3xl sm:text-4xl md:text-5xl font-bold text-blue-500 dark:text-blue-400 inline-block relative mb-4"
@@ -102,7 +102,7 @@ export default function Contact() {
               className="absolute -bottom-2 left-0 h-1 bg-blue-500 dark:bg-blue-400"
               initial={{ width: 0 }}
               whileInView={{ width: "100%" }}
-              viewport={{ once: false }}
+              viewport={{ once: true }}
               transition={{ duration: 1, delay: 0.3 }}
             />
           </motion.h1>
@@ -113,7 +113,7 @@ export default function Contact() {
           variants={fadeIn("up", 0.3)}
           initial="hidden"
           whileInView={"show"}
-          viewport={{ once: false }}
+          viewport={{ once: true }}
         >
           Have a question or want to work together? Drop me a message!
         </motion.p>
@@ -135,7 +135,7 @@ export default function Contact() {
         className="relative w-full max-w-3xl px-4"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: false }}
+        viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
         <div className="relative bg-white dark:bg-gray-800 rounded-2xl md:rounded-3xl shadow-2xl p-6 sm:p-8 md:p-12 border border-gray-100 dark:border-gray-700 hover:border-blue-200 dark:hover:border-blue-500 transition-all duration-500">
@@ -164,7 +164,7 @@ export default function Contact() {
                 variants={fadeIn("up", 0.2)}
                 initial="hidden"
                 whileInView={"show"}
-                viewport={{ once: false }}
+                viewport={{ once: true }}
               >
                 <label className="flex items-center gap-2 font-semibold text-gray-700 dark:text-gray-300 mb-2 text-sm md:text-base">
                   <HiUser className="text-blue-500 dark:text-blue-400 text-lg md:text-xl" />
@@ -198,7 +198,7 @@ export default function Contact() {
                 variants={fadeIn("up", 0.2)}
                 initial="hidden"
                 whileInView={"show"}
-                viewport={{ once: false }}
+                viewport={{ once: true }}
               >
                 <label className="flex items-center gap-2 font-semibold text-gray-700 dark:text-gray-300 mb-2 text-sm md:text-base">
                   <HiMail className="text-blue-500 dark:text-blue-400 text-lg md:text-xl" />
@@ -232,7 +232,7 @@ export default function Contact() {
               variants={fadeIn("up", 0.2)}
               initial="hidden"
               whileInView={"show"}
-              viewport={{ once: false }}
+              viewport={{ once: true }}
               className="mb-4 md:mb-6"
             >
               <label className="flex items-center gap-2 font-semibold text-gray-700 dark:text-gray-300 mb-2 text-sm md:text-base">
@@ -274,7 +274,7 @@ export default function Contact() {
               variants={fadeIn("up", 0.2)}
               initial="hidden"
               whileInView={"show"}
-              viewport={{ once: false }}
+              viewport={{ once: true }}
               className="mb-4 md:mb-6"
             >
               <label className="flex items-center gap-2 font-semibold text-gray-700 dark:text-gray-300 mb-2 text-sm md:text-base">
@@ -313,7 +313,7 @@ export default function Contact() {
               variants={fadeIn("up", 0.2)}
               initial="hidden"
               whileInView={"show"}
-              viewport={{ once: false }}
+              viewport={{ once: true }}
               className="flex justify-center mb-6"
             >
               <ReCAPTCHA sitekey={SITE_KEY} onChange={handleCaptchaChange} />
@@ -325,7 +325,7 @@ export default function Contact() {
               variants={fadeIn("up", 0.2)}
               initial="hidden"
               whileInView={"show"}
-              viewport={{ once: false }}
+              viewport={{ once: true }}
               className="flex justify-center"
             >
               <motion.button
@@ -431,7 +431,7 @@ export default function Contact() {
         className="mt-8 md:mt-12 text-center text-gray-500 dark:text-gray-400 text-xs sm:text-sm px-4"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        viewport={{ once: false }}
+        viewport={{ once: true }}
         transition={{ delay: 0.5 }}
       >
         <motion.div

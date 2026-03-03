@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { PiFigmaLogoFill } from "react-icons/pi";
 import { RiTailwindCssFill } from "react-icons/ri";
 import { FaReact, FaAngular } from "react-icons/fa";
@@ -40,14 +40,14 @@ export default function Main() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [displayText, isDeleting, textIndex]);
 
-  const techIcons = [
+  const techIcons = useMemo(() => [
     { Icon: PiFigmaLogoFill, name: "Figma", color: "#F24E1E" },
     { Icon: RiTailwindCssFill, name: "Tailwind", color: "#06B6D4" },
     { Icon: FaSquareJs, name: "JavaScript", color: "#F7DF1E" },
     { Icon: FaReact, name: "React", color: "#61DAFB" },
     { Icon: FaAngular, name: "Angular", color: "#DD0031" },
     { Icon: SiMongodb, name: "MongoDB", color: "#47A248" },
-  ];
+  ], []);
 
   return (
     <div className="relative w-full h-screen flex flex-col items-center justify-center font-poppins overflow-hidden px-4">
@@ -58,21 +58,10 @@ export default function Main() {
           variants={fadeIn("up", 0.2)}
           initial="hidden"
           whileInView={"show"}
-          viewport={{ once: false }}
+          viewport={{ once: true }}
           className="relative"
         >
-          <motion.div
-            className="absolute -inset-2 bg-blue-500 opacity-20 blur-xl rounded-full"
-            animate={{
-              scale: [1, 1.2, 1],
-              opacity: [0.2, 0.3, 0.2],
-            }}
-            transition={{
-              duration: 3,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-          />
+          <div className="absolute -inset-2 bg-blue-500 opacity-20 blur-xl rounded-full animate-pulse" />
           <h1 className="font-bold lg:text-xl md:text-xl text-lg text-blue-500 relative tracking-wider">
             Hey! I AM
           </h1>
@@ -82,7 +71,7 @@ export default function Main() {
           variants={fadeIn("up", 0.2)}
           initial="hidden"
           whileInView={"show"}
-          viewport={{ once: false }}
+          viewport={{ once: true }}
           whileHover={{ scale: 1.05 }}
           className="relative"
         >
@@ -99,7 +88,7 @@ export default function Main() {
           variants={fadeIn("up", 0.2)}
           initial="hidden"
           whileInView={"show"}
-          viewport={{ once: false }}
+          viewport={{ once: true }}
           className="relative"
         >
           <div className="flex items-center gap-2">
@@ -125,7 +114,7 @@ export default function Main() {
           variants={fadeIn("up", 0.2)}
           initial="hidden"
           whileInView={"show"}
-          viewport={{ once: false }}
+          viewport={{ once: true }}
           className="flex gap-3 sm:gap-4 md:gap-6 mt-8 flex-wrap justify-center"
         >
           {/* eslint-disable-next-line no-unused-vars */}
@@ -188,7 +177,7 @@ export default function Main() {
           variants={fadeIn("up", 0.2)}
           initial="hidden"
           whileInView={"show"}
-          viewport={{ once: false }}
+          viewport={{ once: true }}
           className="mt-6 sm:mt-8"
         >
           <motion.a
@@ -209,12 +198,7 @@ export default function Main() {
             <span className="relative z-10 flex items-center gap-2">
               <span className="hidden sm:inline">Explore My Work</span>
               <span className="sm:hidden">Explore</span>
-              <motion.span
-                animate={{ x: [0, 5, 0] }}
-                transition={{ duration: 1.5, repeat: Infinity }}
-              >
-                →
-              </motion.span>
+              <span>→</span>
             </span>
 
             {/* Shine effect */}
@@ -228,34 +212,12 @@ export default function Main() {
         </motion.div>
       </div>
 
-      {/* Enhanced Scroll Indicator */}
+      {/* Scroll Indicator */}
       <div className="absolute bottom-10 sm:bottom-16 left-0 right-0 flex justify-center">
-        <motion.div
-          className="flex flex-col items-center gap-2"
-          animate={{
-            y: [0, 10, 0],
-          }}
-          transition={{
-            duration: 2,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        >
+        <div className="flex flex-col items-center gap-2 animate-bounce">
           <span className="text-blue-500 dark:text-blue-400 text-sm font-medium tracking-wider">SCROLL</span>
-          <div className="flex flex-col items-center">
-            <MdOutlineKeyboardDoubleArrowDown className="text-blue-500 dark:text-blue-400 md:text-4xl text-3xl" />
-            <motion.div
-              className="w-0.5 h-8 bg-blue-500 dark:bg-blue-400 mt-2"
-              initial={{ scaleY: 0 }}
-              animate={{ scaleY: 1 }}
-              transition={{
-                duration: 1.5,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-            />
-          </div>
-        </motion.div>
+          <MdOutlineKeyboardDoubleArrowDown className="text-blue-500 dark:text-blue-400 md:text-4xl text-3xl" />
+        </div>
       </div>
 
     </div>

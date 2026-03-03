@@ -122,7 +122,7 @@ export default function ProjectCard({
                 className={`absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r ${gradient}`}
                 initial={{ width: 0 }}
                 whileInView={{ width: "100%" }}
-                viewport={{ once: false }}
+                viewport={{ once: true }}
                 transition={{ delay: 0.4, duration: 0.6 }}
               />
             </h1>
