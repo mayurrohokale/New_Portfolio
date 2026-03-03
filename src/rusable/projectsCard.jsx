@@ -3,7 +3,7 @@ import { TbWorld } from "react-icons/tb";
 import { IoLogoGithub } from "react-icons/io";
 // eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useRef, useMemo } from "react";
 
 export default function ProjectCard({
   project_name,
@@ -17,15 +17,34 @@ export default function ProjectCard({
   index = 0,
 }) {
   const [isHovered, setIsHovered] = useState(false);
+  const videoRef = useRef(null);
+
+  // Stable random positions so particles don't teleport on every re-render
+  const particlePositions = useMemo(
+    () => Array.from({ length: 3 }, () => ({
+      top: `${Math.floor(Math.random() * 100)}%`,
+      left: `${Math.floor(Math.random() * 100)}%`,
+    })),
+    []
+  );
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+    videoRef.current?.play();
+  };
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+    videoRef.current?.pause();
+  };
 
   return (
     <motion.div
       className="relative w-full max-w-[340px] sm:max-w-[360px]"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: false }}
+      viewport={{ once: true }}
       transition={{ delay: index * 0.1 }}
     >
       {/* Card container with 3D effect */}
@@ -55,15 +74,15 @@ export default function ProjectCard({
           <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
 
           <motion.video
+            ref={videoRef}
             className="w-full h-full object-cover"
             src={src}
-            controls
-            autoPlay
             loop
             muted
-            preload="auto"
-            whileHover={{ scale: 1.1 }}
-            transition={{ duration: 0.5 }}
+            playsInline
+            preload="none"
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.4 }}
           />
 
           {/* Date badge with glass effect */}
@@ -207,28 +226,17 @@ export default function ProjectCard({
         <div className="absolute bottom-0 left-0 w-20 h-20 bg-gradient-to-tr from-purple-100 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-tr-3xl" />
       </motion.div>
 
-      {/* Floating particles effect */}
+      {/* Floating particles effect - only 3 floats, no infinite loop */}
       {isHovered && (
         <>
-          {[...Array(3)].map((_, i) => (
+          {particlePositions.map((pos, i) => (
             <motion.div
               key={i}
-              className={`absolute w-1 h-1 bg-gradient-to-r ${gradient} rounded-full`}
-              style={{
-                top: `${Math.random() * 100}%`,
-                left: `${Math.random() * 100}%`,
-              }}
-              initial={{ opacity: 0, scale: 0 }}
-              animate={{
-                opacity: [0, 1, 0],
-                scale: [0, 1.5, 0],
-                y: [0, -30],
-              }}
-              transition={{
-                duration: 1.5,
-                delay: i * 0.2,
-                repeat: Infinity,
-              }}
+              className={`absolute w-1 h-1 bg-gradient-to-r ${gradient} rounded-full pointer-events-none`}
+              style={pos}
+              initial={{ opacity: 0, scale: 0, y: 0 }}
+              animate={{ opacity: [0, 1, 0], scale: [0, 1.5, 0], y: -30 }}
+              transition={{ duration: 0.8, delay: i * 0.15 }}
             />
           ))}
         </>

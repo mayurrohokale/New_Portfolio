@@ -1,16 +1,13 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 // eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
 
 const PARTICLES = [
-  { left: "8%", top: "18%", d: 3.6, delay: 0.2 },
-  { left: "22%", top: "72%", d: 4.2, delay: 1.1 },
-  { left: "38%", top: "34%", d: 3.2, delay: 0.6 },
-  { left: "55%", top: "12%", d: 4.8, delay: 1.8 },
-  { left: "66%", top: "58%", d: 3.9, delay: 0.9 },
-  { left: "78%", top: "26%", d: 4.4, delay: 0.4 },
-  { left: "86%", top: "74%", d: 3.4, delay: 1.4 },
-  { left: "92%", top: "42%", d: 4.1, delay: 0.7 },
+  { left: "8%", top: "18%", d: 4, delay: 0.2 },
+  { left: "38%", top: "34%", d: 5, delay: 0.6 },
+  { left: "66%", top: "58%", d: 4.5, delay: 0.9 },
+  { left: "78%", top: "26%", d: 5, delay: 0.4 },
+  { left: "92%", top: "42%", d: 4, delay: 0.7 },
 ];
 
 const TECH_PANELS = [
@@ -51,17 +48,30 @@ const TECH_PANELS = [
 
 export default function BackgroundAnimation() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const rafId = useRef(null);
+  const pendingEvent = useRef(null);
 
-  // Track mouse position for parallax effect
+  // Throttle mouse tracking to one update per animation frame
   useEffect(() => {
     const handleMouseMove = (e) => {
-      setMousePosition({
-        x: (e.clientX / window.innerWidth - 0.5) * 20,
-        y: (e.clientY / window.innerHeight - 0.5) * 20,
+      pendingEvent.current = e;
+      if (rafId.current) return;
+      rafId.current = requestAnimationFrame(() => {
+        const ev = pendingEvent.current;
+        if (ev) {
+          setMousePosition({
+            x: (ev.clientX / window.innerWidth - 0.5) * 20,
+            y: (ev.clientY / window.innerHeight - 0.5) * 20,
+          });
+        }
+        rafId.current = null;
       });
     };
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
+    window.addEventListener("mousemove", handleMouseMove, { passive: true });
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      if (rafId.current) cancelAnimationFrame(rafId.current);
+    };
   }, []);
 
   return (
@@ -74,36 +84,13 @@ export default function BackgroundAnimation() {
       
       {/* Dynamic Background Shapes */}
       <div className="absolute top-0 left-0 w-full sm:w-1/2 h-full bg-blue-100 dark:bg-blue-900/20 opacity-35 transition-colors duration-300">
-        <div className="absolute top-20 left-20 w-32 h-32 bg-blue-200 dark:bg-blue-800/30 rounded-full blur-3xl opacity-25 animate-pulse transition-colors duration-300" />
-        <div className="absolute bottom-40 left-40 w-48 h-48 bg-blue-300 dark:bg-blue-700/30 rounded-full blur-3xl opacity-18 animate-pulse transition-colors duration-300" style={{ animationDelay: "1s" }} />
+        <div className="absolute top-20 left-20 w-32 h-32 bg-blue-200 dark:bg-blue-800/30 rounded-full blur-3xl opacity-20 transition-colors duration-300" />
+        <div className="absolute bottom-40 left-40 w-48 h-48 bg-blue-300 dark:bg-blue-700/30 rounded-full blur-3xl opacity-15 transition-colors duration-300" />
       </div>
 
-      {/* Floating geometric shapes */}
-      <motion.div
-        className="absolute top-1/4 right-1/4 w-16 h-16 border-4 border-blue-400 dark:border-blue-500 opacity-35 transition-colors duration-300"
-        animate={{
-          rotate: 360,
-          y: [0, -30, 0],
-        }}
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: "linear",
-        }}
-      />
-      
-      <motion.div
-        className="absolute bottom-1/3 left-1/4 w-20 h-20 border-4 border-blue-500 dark:border-blue-400 rounded-full opacity-35 transition-colors duration-300"
-        animate={{
-          scale: [1, 1.2, 1],
-          x: [0, 20, 0],
-        }}
-        transition={{
-          duration: 6,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-      />
+      {/* Floating geometric shapes - CSS-only animations (composited, no JS) */}
+      <div className="absolute top-1/4 right-1/4 w-16 h-16 border-4 border-blue-400 dark:border-blue-500 opacity-20 transition-colors duration-300 animate-spin" style={{ animationDuration: "12s" }} />
+      <div className="absolute bottom-1/3 left-1/4 w-20 h-20 border-4 border-blue-500 dark:border-blue-400 rounded-full opacity-20 transition-colors duration-300" />
 
       {/* Parallax floating code snippets */}
       <motion.div
@@ -140,10 +127,7 @@ export default function BackgroundAnimation() {
             transformStyle: "preserve-3d",
           }}
           animate={{
-            y: [0, -panel.float, 0],
-            rotateX: [panel.tilt, -panel.tilt, panel.tilt],
-            rotateY: [-panel.tilt, panel.tilt, -panel.tilt],
-            rotateZ: [0, index % 2 === 0 ? 2 : -2, 0],
+            y: [0, -panel.float * 0.5, 0],
           }}
           transition={{
             duration: 10 + index * 2,
@@ -155,7 +139,7 @@ export default function BackgroundAnimation() {
           <div className="absolute -inset-8 bg-blue-400/10 dark:bg-blue-500/6 blur-3xl opacity-18" />
 
           <div
-            className="relative w-72 md:w-80 rounded-2xl border border-white/35 dark:border-white/8 bg-white/18 dark:bg-gray-900/16 backdrop-blur-xl shadow-none opacity-65 blur-[0.4px] saturate-90 scale-[0.95]"
+            className="relative w-72 md:w-80 rounded-2xl border border-white/35 dark:border-white/8 bg-white/18 dark:bg-gray-900/16 backdrop-blur-sm shadow-none opacity-65 blur-[0.4px] saturate-90 scale-[0.95]"
             style={{ transform: "perspective(900px) translateZ(0px)" }}
           >
             {/* Header */}
