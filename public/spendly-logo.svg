@@ -1,0 +1,17 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Spendly">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FF8A7A"/>
+      <stop offset="0.55" stop-color="#FF6FA5"/>
+      <stop offset="1" stop-color="#A78BFA"/>
+    </linearGradient>
+  </defs>
+  <rect width="48" height="48" rx="12.5" fill="url(#g)"/>
+  <path d="M33.8 16.2C31.6 13.8 28.1 12.2 23.8 12.2C18.2 12.2 14.4 14.9 14.4 18.7C14.4 21.9 17.2 23.4 24 24.5C30.8 25.6 33.6 27.3 33.6 30.4C33.6 34.2 29.6 36.6 24.2 36.6C20.2 36.6 16.6 35.1 14.2 32.4"
+        fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M21.6 15.0a1.5 1.5 0 0 1 1.5-1.5h5.6a1.5 1.5 0 0 1 1.5 1.5v9.9l-1.43-1.15l-1.43 1.15l-1.43-1.15l-1.43 1.15l-1.43-1.15l-1.48 1.15z"
+        fill="url(#g)" stroke="url(#g)" stroke-width="2.6" stroke-linejoin="round"/>
+  <path d="M21.6 15.0a1.5 1.5 0 0 1 1.5-1.5h5.6a1.5 1.5 0 0 1 1.5 1.5v9.9l-1.43-1.15l-1.43 1.15l-1.43-1.15l-1.43 1.15l-1.43-1.15l-1.48 1.15z"
+        fill="#fff"/>
+  <path d="M23.5 17.5h5.0M23.5 20.1h5.0M23.5 22.7h3.0" stroke="#FB5FA0" stroke-width="1.55" stroke-linecap="round"/>
+</svg>

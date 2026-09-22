@@ -9,6 +9,16 @@ import { fadeIn } from "../assets/varients";
 export default function Projects() {
   const projects = [
     {
+      project_name: "Spendly",
+      date: "Jun 2026",
+      description:
+        "Spendly 💸 is a mobile-first personal-finance app for India 🇮🇳 that brings bank accounts, spending, investments and loans into one place. It auto-detects transactions from bank-alert emails 📧 via read-only Gmail, tracks mutual funds, stocks, FDs and crypto with live market data 📈, and offers goals, budgets, reports and an AI money assistant 🤖.",
+      webLink: "https://spendly-wallet.vercel.app/",
+      logo: "/spendly-logo.svg",
+      techStack: ["NextJS", "React", "Tailwind", "MongoDB", "Gmail API", "Gemini AI"],
+      gradient: "from-[#FF8A7A] via-[#FF6FA5] to-[#A78BFA]",
+    },
+    {
       project_name: "Kindness Corner",
       date: "June 2024",
       description:

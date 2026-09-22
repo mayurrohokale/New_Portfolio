@@ -12,6 +12,7 @@ export default function ProjectCard({
   gitLink,
   webLink,
   src,
+  logo,
   techStack,
   gradient = "from-blue-500 to-purple-500",
   index = 0,
@@ -73,17 +74,33 @@ export default function ProjectCard({
           {/* Gradient overlay */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
 
-          <motion.video
-            ref={videoRef}
-            className="w-full h-full object-cover"
-            src={src}
-            loop
-            muted
-            playsInline
-            preload="none"
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.4 }}
-          />
+          {src ? (
+            <motion.video
+              ref={videoRef}
+              className="w-full h-full object-cover"
+              src={src}
+              loop
+              muted
+              playsInline
+              preload="none"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.4 }}
+            />
+          ) : (
+            // No demo video: branded cover with the project's logo on its gradient
+            <motion.div
+              className={`w-full h-full flex items-center justify-center bg-gradient-to-br ${gradient}`}
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.4 }}
+            >
+              <img
+                src={logo}
+                alt={`${project_name} logo`}
+                className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl shadow-2xl ring-4 ring-white/30"
+                loading="lazy"
+              />
+            </motion.div>
+          )}
 
           {/* Date badge with glass effect */}
           <motion.div
@@ -96,15 +113,17 @@ export default function ProjectCard({
           </motion.div>
 
           {/* Play indicator */}
-          <motion.div
-            className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity z-20"
-            initial={{ scale: 0 }}
-            whileHover={{ scale: 1 }}
-          >
-            <div className="w-16 h-16 bg-white/30 backdrop-blur-sm rounded-full flex items-center justify-center">
-              <div className="w-0 h-0 border-l-[20px] border-l-white border-t-[12px] border-t-transparent border-b-[12px] border-b-transparent ml-1" />
-            </div>
-          </motion.div>
+          {src && (
+            <motion.div
+              className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity z-20"
+              initial={{ scale: 0 }}
+              whileHover={{ scale: 1 }}
+            >
+              <div className="w-16 h-16 bg-white/30 backdrop-blur-sm rounded-full flex items-center justify-center">
+                <div className="w-0 h-0 border-l-[20px] border-l-white border-t-[12px] border-t-transparent border-b-[12px] border-b-transparent ml-1" />
+              </div>
+            </motion.div>
+          )}
         </div>
 
         {/* Content Section */}
