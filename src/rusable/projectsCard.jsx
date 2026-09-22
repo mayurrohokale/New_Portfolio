@@ -3,7 +3,11 @@ import { TbWorld } from "react-icons/tb";
 import { IoLogoGithub } from "react-icons/io";
 // eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
-import { useState, useRef, useMemo } from "react";
+import { useState, useRef, useMemo, useEffect } from "react";
+
+// Touch screens have no hover, so their videos autoplay while on screen instead
+const canHover =
+  typeof window !== "undefined" && window.matchMedia("(hover: hover)").matches;
 
 export default function ProjectCard({
   project_name,
@@ -12,6 +16,8 @@ export default function ProjectCard({
   gitLink,
   webLink,
   src,
+  poster,
+  vertical = false,
   logo,
   techStack,
   gradient = "from-blue-500 to-purple-500",
@@ -29,13 +35,27 @@ export default function ProjectCard({
     []
   );
 
+  useEffect(() => {
+    const video = videoRef.current;
+    if (canHover || !video) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) video.play().catch(() => {});
+        else video.pause();
+      },
+      { threshold: 0.6 }
+    );
+    observer.observe(video);
+    return () => observer.disconnect();
+  }, []);
+
   const handleMouseEnter = () => {
     setIsHovered(true);
-    videoRef.current?.play();
+    if (canHover) videoRef.current?.play().catch(() => {});
   };
   const handleMouseLeave = () => {
     setIsHovered(false);
-    videoRef.current?.pause();
+    if (canHover) videoRef.current?.pause();
   };
 
   return (
@@ -74,15 +94,44 @@ export default function ProjectCard({
           {/* Gradient overlay */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
 
-          {src ? (
+          {src && vertical ? (
+            // Portrait app recording: a phone rising from the bottom of the cover
+            <div className={`w-full h-full bg-gradient-to-br ${gradient}`}>
+              {logo && (
+                <img
+                  src={logo}
+                  alt={`${project_name} logo`}
+                  className="absolute top-3 left-3 sm:top-4 sm:left-4 w-9 h-9 sm:w-10 sm:h-10 rounded-xl shadow-lg ring-2 ring-white/40"
+                  loading="lazy"
+                />
+              )}
+              <motion.div
+                className="absolute left-1/2 top-4 -translate-x-1/2 w-[130px] sm:w-[140px] aspect-[9/20] rounded-[22px] border-[5px] border-gray-900 bg-gray-900 shadow-2xl overflow-hidden"
+                whileHover={{ y: -6 }}
+                transition={{ duration: 0.4 }}
+              >
+                <video
+                  ref={videoRef}
+                  className="w-full h-full object-cover object-top"
+                  src={src}
+                  poster={poster}
+                  loop
+                  muted
+                  playsInline
+                  preload="metadata"
+                />
+              </motion.div>
+            </div>
+          ) : src ? (
             <motion.video
               ref={videoRef}
               className="w-full h-full object-cover"
               src={src}
+              poster={poster}
               loop
               muted
               playsInline
-              preload="none"
+              preload="metadata"
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.4 }}
             />
@@ -113,7 +162,7 @@ export default function ProjectCard({
           </motion.div>
 
           {/* Play indicator */}
-          {src && (
+          {src && canHover && (
             <motion.div
               className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity z-20"
               initial={{ scale: 0 }}

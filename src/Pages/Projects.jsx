@@ -14,6 +14,9 @@ export default function Projects() {
       description:
         "Spendly 💸 is a mobile-first personal-finance app for India 🇮🇳 that brings bank accounts, spending, investments and loans into one place. It auto-detects transactions from bank-alert emails 📧 via read-only Gmail, tracks mutual funds, stocks, FDs and crypto with live market data 📈, and offers goals, budgets, reports and an AI money assistant 🤖.",
       webLink: "https://spendly-wallet.vercel.app/",
+      src: "/spendly.mp4",
+      poster: "/spendly.jpg",
+      vertical: true,
       logo: "/spendly-logo.svg",
       techStack: ["NextJS", "React", "Tailwind", "MongoDB", "Gmail API", "Gemini AI"],
       gradient: "from-[#FF8A7A] via-[#FF6FA5] to-[#A78BFA]",
@@ -25,6 +28,7 @@ export default function Projects() {
         "Kindness Corner ❤️ is a platform that bridges the gap between NGOs and donors, enabling a voting-based donation system 🗳️. The project empowers users to vote for causes, ensuring donations are allocated transparently and effectively.",
       gitLink: "https://github.com/mayurrohokale/Kindness_Corner",
       src: "/video3.mp4",
+      poster: "/video3.jpg",
       techStack: ["React", "Tailwind", "NodeJS", "Express", "MongoDB"],
       webLink: "https://kindness-corner.vercel.app/",
       gradient: "from-pink-500 to-rose-500",
@@ -36,6 +40,7 @@ export default function Projects() {
         "eStore 👗👚 is an e-commerce clothing store 🛍️, allowing users to easily sort and browse products by category and accessories 🧥👠. Customers can rate products ⭐, add them to their cart 🛒, and enjoy a smooth shopping experience.",
       gitLink: "https://github.com/mayurrohokale/estore",
       src: "/estore2.mp4",
+      poster: "/estore2.jpg",
       techStack: ["Angular", "CSS", "NodeJS", "Typescript", "MySQL", "Express"],
       gradient: "from-purple-500 to-indigo-500",
     },
@@ -48,6 +53,7 @@ export default function Projects() {
       webLink: "https://scrapli.vercel.app/",
       techStack: ["NextJS", "Tailwind", "Acternity UI"],
       src: "/next-scrapper.mp4",
+      poster: "/next-scrapper.jpg",
       gradient: "from-cyan-500 to-blue-500",
     },
     {
@@ -58,6 +64,7 @@ export default function Projects() {
       gitLink: "https://github.com/AkashMaher/next-scraper",
       techStack: ["Python", "Selenium"],
       src: "/naukari.mp4",
+      poster: "/naukari.jpg",
       gradient: "from-orange-500 to-amber-500",
     },
     {
@@ -68,6 +75,7 @@ export default function Projects() {
       gitLink: "https://github.com/mayurrohokale/Customised-Virtual-File-System",
       techStack: ["C", "C++"],
       src: "/cvfs.mp4",
+      poster: "/cvfs.jpg",
       gradient: "from-green-500 to-emerald-500",
     },
   ];
