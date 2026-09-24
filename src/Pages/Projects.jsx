@@ -27,6 +27,8 @@ export default function Projects() {
       description:
         "The Neutral Post 📰 is an AI-assisted, quality-first news platform: \"news beyond bias\". Every story is structured into what happened, why it matters and what we don't know ⚖️, with sources and claim markers. An AI newsroom 🤖 ingests feeds, researches and drafts stories twice a day, and a human editor always reviews before anything is published ✅.",
       webLink: "https://theneutralpost.vercel.app/",
+      src: "/neutral.mp4",
+      poster: "/neutral.jpg",
       logo: "/neutral-logo.png",
       techStack: ["NextJS", "Payload CMS", "PostgreSQL", "Tailwind", "Gemini AI", "Trigger.dev"],
       gradient: "from-stone-900 via-stone-700 to-[#C8B99A]",
