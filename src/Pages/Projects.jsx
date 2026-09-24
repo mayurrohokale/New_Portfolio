@@ -12,7 +12,7 @@ export default function Projects() {
       project_name: "Spendly",
       date: "Jun 2026",
       description:
-        "Spendly 💸 is a mobile-first personal-finance app for India 🇮🇳 that brings bank accounts, spending, investments and loans into one place. It auto-detects transactions from bank-alert emails 📧 via read-only Gmail, tracks mutual funds, stocks, FDs and crypto with live market data 📈, and offers goals, budgets, reports and an AI money assistant 🤖.",
+        "Spendly 💸 is a personal-finance app for India 🇮🇳 that works seamlessly on phone, tablet and desktop 📱💻, bringing bank accounts, spending, investments and loans into one place. It auto-detects transactions from bank-alert emails 📧 via read-only Gmail, tracks mutual funds, stocks, FDs and crypto with live market data 📈, and offers goals, budgets, reports and an AI money assistant 🤖.",
       webLink: "https://spendly-wallet.vercel.app/",
       src: "/spendly.mp4",
       poster: "/spendly.jpg",
@@ -57,23 +57,11 @@ export default function Projects() {
       gradient: "from-purple-500 to-indigo-500",
     },
     {
-      project_name: "Next-Scraper",
-      date: "Aug 2024",
-      description:
-        "Next Scraper 🔍 is a LinkedIn scraping tool built with Next.js 🌐, designed to efficiently extract valuable data from LinkedIn profiles. Features a sleek and intuitive UI 🎨, ensuring users can easily input URLs, configure scraping settings, and view extracted data.",
-      gitLink: "https://github.com/AkashMaher/next-scraper",
-      webLink: "https://scrapli.vercel.app/",
-      techStack: ["NextJS", "Tailwind", "Acternity UI"],
-      src: "/next-scrapper.mp4",
-      poster: "/next-scrapper.jpg",
-      gradient: "from-cyan-500 to-blue-500",
-    },
-    {
       project_name: "Naukari Automation",
       date: "Jan 2025",
       description:
         "Naukri Automation Tool 💼 is a powerful tool designed to automate the job search and application process on Naukri.com. It streamlines the process by automatically applying to relevant job listings based on user preferences 🧑‍💻.",
-      gitLink: "https://github.com/AkashMaher/next-scraper",
+      gitLink: "https://github.com/mayurrohokale/Naukari_Automation",
       techStack: ["Python", "Selenium"],
       src: "/naukari.mp4",
       poster: "/naukari.jpg",
